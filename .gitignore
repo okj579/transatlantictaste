@@ -1,4 +1,5 @@
 .nuxt
+.output
 .vscode
 .idea
 node_modules

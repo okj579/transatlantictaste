@@ -1,12 +1,13 @@
-import { NavItem } from "@nuxt/content/dist/runtime/types";
+import type { NavItem } from "@nuxt/content/dist/runtime/types";
 
 export function useSubpages() {
-  const currentPage = computed(() => useRoute().fullPath.slice(1));
+  const route = useRoute();
+  const currentPage = computed(() => route.fullPath.slice(1));
   const indexPages = computed(() => {
     const path = currentPage.value.split("/");
     return path.map((_, i) => "/" + path.slice(0, i + 1).join("/"));
   });
-  return useAsyncData(`subpages-${currentPage.value}`, async () => {
+  return useAsyncData(`subpages-${route.fullPath}`, async () => {
     const nav = await fetchContentNavigation(
       queryContent(currentPage.value).where({
         _path: {

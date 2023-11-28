@@ -9,16 +9,16 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.73",
-    "@nuxt/content": "^2.6.0",
-    "@nuxt/image": "^1.0.0-rc.1",
-    "@nuxthq/ui": "^2.2.1",
-    "@nuxtjs/i18n": "8.0.0-beta.12",
-    "@nuxtjs/tailwindcss": "^6.7.0",
-    "@originjs/vite-plugin-content": "^1.0.3",
-    "@types/node": "^18",
-    "nuxt": "^3.5.2",
-    "prettier": "2.8.8",
+    "@iconify-json/heroicons": "^1.1.15",
+    "@nuxt/content": "^2.9.0",
+    "@nuxt/image": "^1.1.0",
+    "@nuxt/ui": "^2.11.0",
+    "@nuxtjs/i18n": "^8.0.0",
+    "@originjs/vite-plugin-content": "^1.0.5",
+    "@vueuse/nuxt": "^10.7.0",
+    "nuxt": "^3.9.0",
+    "prettier": "3.1.1",
+    "sass": "^1.69.5",
     "schema-dts": "^1.1.2"
   }
 }

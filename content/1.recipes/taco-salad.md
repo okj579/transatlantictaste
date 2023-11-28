@@ -1,10 +1,9 @@
 ---
 title: Taco Salad
-image: /taco-salad.jpg
+image: /images/taco-salad.jpg
 ---
 
-
-![Taco salad](/taco-salad.jpg)
+![Taco salad](/images/taco-salad.jpg)
 
 * 400g Ground beef
 * 250g Mushrooms

@@ -1,5 +1,5 @@
 ---
-title: Ingredients
+title: Tips & Ingredients
 ---
 
 asdfasd fasdf asf a

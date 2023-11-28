@@ -1,14 +1,27 @@
-import content from "@originjs/vite-plugin-content";
-
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/i18n", "@nuxthq/ui", "@nuxt/content", "@nuxt/image"],
-  vite: {
-    plugins: [content()],
-  },
+  modules: [
+    "@nuxt/ui",
+    "@nuxt/content",
+    "@nuxt/image",
+    "@nuxtjs/i18n",
+    "@vueuse/nuxt"
+  ],
   content: {
-    documentDriven: true,
+    navigation: { fields: ['title', 'image'] },
+    markdown: {
+      anchorLinks: false
+    }
   },
   ui: {
     icons: ["heroicons"],
   },
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.yaml', label: 'English' },
+      // { code: 'de', iso: 'de-DE', file: 'de.yaml', label: 'Deutsch' },
+    ],
+    defaultLocale: 'en',
+    langDir: 'lang',
+    strategy: 'no_prefix',
+  }
 });

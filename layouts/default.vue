@@ -1,8 +1,18 @@
+<script setup lang="ts">
+withDefaults(defineProps<{
+  prose?: boolean,
+  pageTitle?: string | false,
+}>(), {
+  prose: true,
+  pageTitle: undefined,
+});
+</script>
+
 <template>
   <div>
-    <PageHeader />
+    <PageHeader :pageTitle="pageTitle" />
 
-    <div class="prose dark:prose-invert">
+    <div :class="{ 'prose dark:prose-invert': prose }">
       <slot />
     </div>
 

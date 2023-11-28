@@ -1,5 +1,5 @@
 ---
-Title: Pumpkin Pie
+title: Pumpkin Pie
 ---
 
 ::Recipe
@@ -10,25 +10,34 @@ ingredients:
     - amount: 3
       name: medium eggs  
     - amount: 1
-      name: egg yolk  
-    - amount: 1 cup
-      name: '[whole cane sugar](/ingredients/brown-sugar "brauner Zucker, Rohrohrzucker")'
+      name: egg yolk
+    - amount: 1 cup / 200 g
+      name: whole cane sugar
+      link: /tips-ingredients/brown-sugar
+      translation: brauner Zucker, Rohrohrzucker
     - amount: 1/2 tsp
       name: salt  
     - amount: 2 tsp
-      name:  cinnamon  
+      name:  cinnamon
+      translation: Zimt
     - amount: 1 tsp 
-      name: ground ginger  
+      name: ground ginger
+      translation: Ingwer  
     - amount: 1/4 tsp 
       name: ground nutmeg  
+      translation: Muskatnuss
     - amount: 1/4 tsp 
-      name: ground cloves  
+      name: ground cloves
+      translation: Nelken
     - amount: 1/8 tsp 
-      name: ground cardamom  
+      name: ground cardamom
+      translation: Kardamom
     - amount: 200 g 
       name: cream
+
     - amount: 1 
       name: pie crust or puff pastry
+      translation: Blätterteig
 ---
 #steps
 1. **For the pumpkin purée:** Cut the pumpkin in half and scoop out the seeds. Place the halves on a lined baking sheet and roast in the oven at 175°C (350°F) for about 45 minutes until the flesh is soft. When the pumpkin is cool enough to handle, scoop out the flesh and mash with a fork. This will keep in the fridge for a few days, if you'd like to prepare it in advance.

@@ -1,3 +1,30 @@
+<script setup lang="ts">
+const {navigation} = await useNavigation();
+
+const colorMode = useColorMode({ emitAuto: true });
+const { t } = useI18n();
+// const t = (x) => x
+
+const isMenuOpen = ref(false);
+watch(useRouter().currentRoute, () => {
+  isMenuOpen.value = false;
+});
+
+const COLOR_ICONS = {
+  dark: "i-heroicons-moon",
+  light: "i-heroicons-sun",
+  auto: "i-heroicons-computer-desktop",
+};
+const colorsDropdown = computed(() =>
+  Object.entries(COLOR_ICONS).map(([name, icon]) => ({
+    name,
+    icon,
+    label: t(`themes.${name}`),
+    click: () => (colorMode.value = name),
+  }))
+);
+</script>
+
 <template>
   <header
     class="sticky top-0 z-50 w-full backdrop-blur flex-none border-b border-gray-900/10 dark:border-gray-50/[0.06] bg-white/75 dark:bg-gray-900/75"
@@ -9,11 +36,11 @@
             to="/"
             class="flex items-end gap-1.5 font-bold text-xl text-gray-900 dark:text-white"
           >
-            Recipes
+            Transatlantic Taste
           </NuxtLink>
         </div>
 
-        <nav class="mx-8 max-lg:hidden">
+        <nav class="mx-8 max-sm:hidden">
           <ul class="flex">
             <li v-for="(navItem, i) in navigation" :key="i" class="mx-2">
               <NuxtLink :to="navItem._path">
@@ -26,111 +53,65 @@
         <div class="grow" />
 
         <div class="flex items-center -mr-1.5">
-          <UButton
-            color="gray"
-            variant="ghost"
-            class="lg:hidden"
-            icon="i-heroicons-magnifying-glass-20-solid"
-            @click="openSearch"
-          />
-
-          <ClientOnly>
+          <USelectMenu
+            :options="colorsDropdown"
+            :modelValue="{ name: colorMode.value }"
+            by="name"
+            @update:modelValue="$event.click()"
+          >
             <UButton
-              :icon="isDark ? 'i-heroicons-moon' : 'i-heroicons-sun'"
+              icon="dark:i-heroicons-moon i-heroicons-sun"
               color="gray"
               variant="ghost"
-              aria-label="Theme"
-              @click="isDark = !isDark"
             />
-
-            <template #fallback>
-              <div class="w-8 h-8" />
-            </template>
-          </ClientOnly>
+          </USelectMenu>
 
           <UButton
             color="gray"
             variant="ghost"
-            class="lg:hidden"
+            class="sm:hidden"
             icon="i-heroicons-bars-3-20-solid"
-            @click="isDialogOpen = true"
+            @click="isMenuOpen = true"
           />
         </div>
       </div>
     </UContainer>
 
-    <TransitionRoot :show="isDialogOpen" as="template">
-      <Dialog as="div" @close="isDialogOpen = false">
-        <DialogPanel
-          class="fixed inset-0 z-50 overflow-y-auto bg-white dark:bg-gray-900 lg:hidden"
-        >
-          <div
-            class="px-4 sm:px-6 sticky top-0 border-b border-gray-900/10 dark:border-gray-50/[0.06] bg-white/75 dark:bg-gray-900/75 backdrop-blur z-10"
-          >
-            <div class="flex items-center justify-between h-16">
-              <div class="flex items-center gap-3">
-                <NuxtLink
-                  to="/"
-                  class="flex items-end gap-1.5 font-bold text-xl text-gray-900 dark:text-white"
-                >
-                  Recipes
-                </NuxtLink>
-              </div>
-
-              <div class="flex -mr-1.5">
-                <UButton
-                  color="gray"
-                  variant="ghost"
-                  icon="i-heroicons-x-mark-20-solid"
-                  @click="isDialogOpen = false"
-                />
-              </div>
-            </div>
+    <USlideover v-model="isMenuOpen">
+      <UCard
+        class="flex flex-col flex-1"
+        :ui="{
+          body: { base: 'flex-1' },
+          ring: '',
+          divide: 'divide-y divide-gray-100 dark:divide-gray-800',
+        }"
+      >
+        <template #header>
+          <div class="flex justify-between gap-3">
+            <NuxtLink
+              to="/"
+              class="font-bold text-xl text-gray-900 dark:text-white"
+            >
+              Recipes
+            </NuxtLink>
+            <UButton
+              color="gray"
+              variant="ghost"
+              icon="i-heroicons-x-mark-20-solid"
+              @click="isMenuOpen = false"
+            />
           </div>
-          <nav class="px-4 sm:px-6 py-4 sm:py-6">
-            <ul>
-              <li
-                v-for="(navItem, i) in navigation"
-                :key="i"
-                class="block my-2"
-              >
-                <NuxtLink :to="navItem._path">
-                  {{ navItem.title }}
-                </NuxtLink>
-              </li>
-            </ul>
-          </nav>
-        </DialogPanel>
-      </Dialog>
-    </TransitionRoot>
+        </template>
+        <nav class="px-4 sm:px-6 py-4 sm:py-6">
+          <ul>
+            <li v-for="(navItem, i) in navigation" :key="i" class="block my-2">
+              <NuxtLink :to="navItem._path">
+                {{ navItem.title }}
+              </NuxtLink>
+            </li>
+          </ul>
+        </nav>
+      </UCard>
+    </USlideover>
   </header>
 </template>
-
-<script setup lang="ts">
-import { Dialog, DialogPanel, TransitionRoot } from "@headlessui/vue";
-import type { NavItem } from "@nuxt/content/dist/runtime/types";
-
-const { navigation } = useContent() as { navigation: NavItem[] };
-
-const colorMode = useColorMode();
-
-const isDialogOpen = ref(false);
-const isSearchModalOpen = ref(false);
-
-const isDark = computed({
-  get() {
-    return colorMode.value === "dark";
-  },
-  set() {
-    colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
-  },
-});
-
-function openSearch() {
-  isDialogOpen.value = false;
-
-  setTimeout(() => {
-    isSearchModalOpen.value = true;
-  }, 100);
-}
-</script>

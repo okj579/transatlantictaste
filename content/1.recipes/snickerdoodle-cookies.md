@@ -8,7 +8,7 @@ title: Snickerdoodle Cookies
 2 eggs  
 1 tsp vanilla extract  
 2 3/4 cups flour  
-4 tsp [Weinsteinbackpulver](/ingredients/cream-of-tartar)
+4 tsp [Weinsteinbackpulver](/tips-ingredients/cream-of-tartar)
 1/2 tsp salt
 
 **For cinnamon sugar:** 
