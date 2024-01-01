@@ -1,5 +1,5 @@
 ---
-title: Legal & Imprint
+title: Legal
 navigation: false
 ---
 
@@ -7,7 +7,7 @@ Transatlantic Taste is based in Germany. As a purely non-commercial site, it doe
 
 ## Privacy
 
-Transatlantic Taste does not collact any personal data or track users.
+Transatlantic Taste does not collect any personal data or track users.
 
 ## Contact
 
