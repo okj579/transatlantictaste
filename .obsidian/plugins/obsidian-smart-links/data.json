@@ -1,0 +1,8 @@
+{
+  "patterns": [
+    {
+      "regexp": "/images/.+",
+      "replacement": "public/$0"
+    }
+  ]
+}
