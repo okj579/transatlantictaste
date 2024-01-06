@@ -18,7 +18,6 @@ ingredients:
     name: vanilla extract  
   - amount: 2 3/4 cups
     name: flour
-    link: /tips-ingredients/flour
   - amount: 4 tsp
     name: Weinsteinbackpulver
     link: /tips-ingredients/cream-of-tartar

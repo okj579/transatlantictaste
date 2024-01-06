@@ -21,8 +21,7 @@ ingredients:
   - amount: 1 clove
     name: garlic
   - amount: 1 Tbsp
-    name: Taco seasoning
-    link: /recipes/taco-seasoning 
+    name: Taco seasoning 
 groups:
   - title: Salsa
     ingredients:
