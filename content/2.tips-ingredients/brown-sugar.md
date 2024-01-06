@@ -1,5 +1,6 @@
 ---
 title: Brown Sugar
+image: /images/brown-sugar.jpg
 ---
 
 Have you ever tried to bake with brown sugar in Germany? If so, you may have noticed that the "Brauner Zucker" available in German grocery stores is much lighter than the brown sugar you're used to. This is what's called raw or whole cane sugar in the English-speaking world. Instead of mixing molasses into refined sugar, like typical American brown sugar, the sugar cane is less refined, leaving more of the original molasses behind in the sugar crystals themselves. As a result, it can be drier and have a more complex flavor profile than the mixed kind.

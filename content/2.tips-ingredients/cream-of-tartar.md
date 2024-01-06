@@ -1,5 +1,6 @@
 ---
 title: Cream of Tartar
+image: /images/powder-bowl.jpg
 ---
 
 Cream of tartar (Weinstein), also called potassium bitartrate or tartaric acid, is an acidic powder normally formed as a byproduct of wine-making. It's often used with baking soda as a leavening agent in cakes, cookies, and quick breads. Cream of tartar is also used in the making of meringue because it stabilizes the egg whites and helps them hold their shape. It can also be used to prevent sugar from crystallizing in syrups and candies.

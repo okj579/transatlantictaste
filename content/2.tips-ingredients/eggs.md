@@ -1,8 +1,7 @@
 ---
 title: Eggs
+image: /images/eggs.jpg
 ---
-
-![Eggs](../../public/images/eggs.jpg)
 
 Eggs are a staple food in many parts of the world and are consumed in various ways, from scrambled and boiled to poached and fried. While eggs may seem like a simple and straightforward food item, there can be significant differences in how they are produced and labeled in different parts of the world. Let's look at some of the differences between the United States and Germany.
 

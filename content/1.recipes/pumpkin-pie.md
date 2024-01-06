@@ -1,5 +1,6 @@
 ---
 title: Pumpkin Pie
+image: /images/pumpkin-pie.jpg
 ---
 
 ::Recipe
@@ -8,7 +9,8 @@ ingredients:
     - amount: 1
       name: Hokkaido pumpkin  
     - amount: 3
-      name: medium eggs  
+      name: eggs
+      link: /tips-ingredients/eggs
     - amount: 1
       name: egg yolk
     - amount: 1 cup / 200 g

@@ -4,3 +4,6 @@ themes:
   dark: Dark
   light: Light
   auto: System
+
+options:
+  showTranslation: Show translations
