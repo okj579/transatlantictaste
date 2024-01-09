@@ -1,35 +1,12 @@
 <script setup lang="ts">
-const route = useRoute();
-const { data: pages } = useSubpages();
-const { data: navigation } = await useAsyncData("navigation", () =>
-  fetchContentNavigation(),
-);
+const { data: subpages } = useSubpages();
 </script>
 <template>
-  <NuxtLayout :prose="false">
-    <ContentDoc class="prose dark:prose-invert pb-10">
+  <NuxtLayout>
+    <ContentDoc class="prose pb-10">
       <template #empty></template>
     </ContentDoc>
 
-    <div class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-2">
-      <div v-if="pages" v-for="page in pages" :key="page._path" class="w-full">
-        <NuxtLink :to="page._path">
-          <UCard :ui="{ body: { padding: '' } }">
-            <div v-if="page.image">
-              <NuxtImg
-                :src="page.image"
-                width="200"
-                height="160"
-                class="w-full"
-                placeholder
-              />
-            </div>
-            <template #footer>
-              <div class="text-lg">{{ page.title }}</div>
-            </template>
-          </UCard>
-        </NuxtLink>
-      </div>
-    </div>
+    <RecipeList :pages="subpages" />
   </NuxtLayout>
 </template>

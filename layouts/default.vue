@@ -1,26 +1,13 @@
-<script setup lang="ts">
-withDefaults(
-  defineProps<{
-    prose?: boolean;
-    pageTitle?: string | false;
-  }>(),
-  {
-    prose: true,
-    pageTitle: undefined,
-  },
-);
-</script>
-
 <template>
   <div>
-    <PageHeader :pageTitle="pageTitle" />
-
-    <div :class="{ 'prose dark:prose-invert md:col-1': prose }">
+    <main>
+      <PageHeader />
       <slot />
-    </div>
+    </main>
 
-    <hr class="border-gray-200 dark:border-gray-800 my-6" />
+    <hr class="border-gray-200 dark:border-gray-800 my-12" />
 
-    <PageFooter class="mt-16" />
+    <PageFooter />
   </div>
 </template>
+<script setup lang="ts"></script>

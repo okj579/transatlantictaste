@@ -1,9 +1,8 @@
 <script setup lang="ts">
-const {navigation} = await useNavigation();
+const { navigation } = await useNavigation();
 
-const colorMode = useColorMode({ emitAuto: true });
+const colorMode = useColorMode();
 const { t } = useI18n();
-// const t = (x) => x
 
 const isMenuOpen = ref(false);
 watch(useRouter().currentRoute, () => {
@@ -13,15 +12,14 @@ watch(useRouter().currentRoute, () => {
 const COLOR_ICONS = {
   dark: "i-heroicons-moon",
   light: "i-heroicons-sun",
-  auto: "i-heroicons-computer-desktop",
+  system: "i-heroicons-computer-desktop",
 };
 const colorsDropdown = computed(() =>
-  Object.entries(COLOR_ICONS).map(([name, icon]) => ({
-    name,
+  Object.entries(COLOR_ICONS).map(([code, icon]) => ({
+    code,
     icon,
-    label: t(`themes.${name}`),
-    click: () => (colorMode.value = name),
-  }))
+    label: t(`themes.${code}`),
+  })),
 );
 </script>
 
@@ -36,7 +34,7 @@ const colorsDropdown = computed(() =>
             to="/"
             class="flex items-end gap-1.5 font-bold text-xl text-gray-900 dark:text-white"
           >
-            Transatlantic Taste
+            <Logo class="h-6" />
           </NuxtLink>
         </div>
 
@@ -55,9 +53,9 @@ const colorsDropdown = computed(() =>
         <div class="flex items-center -mr-1.5">
           <USelectMenu
             :options="colorsDropdown"
-            :modelValue="{ name: colorMode.value }"
-            by="name"
-            @update:modelValue="$event.click()"
+            :modelValue="{ name: colorMode.preference }"
+            by="code"
+            @update:modelValue="({ code }) => (colorMode.preference = code)"
           >
             <UButton
               icon="dark:i-heroicons-moon i-heroicons-sun"

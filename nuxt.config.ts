@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxt/devtools",
   ],
+  css: ["~/assets/app.css"],
   content: {
     navigation: { fields: ["title", "image"] },
     markdown: {

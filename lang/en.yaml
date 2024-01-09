@@ -3,7 +3,7 @@ siteTitle: Transatlantic Taste
 themes:
   dark: Dark
   light: Light
-  auto: System
+  system: System
 
 options:
   showTranslation: Show translations
