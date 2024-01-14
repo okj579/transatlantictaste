@@ -1,22 +1,21 @@
 <script setup lang="ts">
 const { navDirFromPath } = useContentHelpers();
 const { navigation } = await useNavigation();
-const {data: doc} = useContentPage();
+const { data: doc } = await useContentPage();
 if (doc.value) useContentHead(doc.value);
 const recipes = computed(
   () =>
     navigation.value &&
-    navDirFromPath("/recipes", navigation.value)?.slice(1, 4),
+    navDirFromPath("/recipes", navigation.value)?.slice(1, 4)
 );
 const tips = computed(
   () =>
     navigation.value &&
-    navDirFromPath("/tips-ingredients", navigation.value)?.slice(1, 5),
+    navDirFromPath("/tips-ingredients", navigation.value)?.slice(1, 5)
 );
 </script>
 <template>
   <NuxtLayout name="wide">
-    <pre>{{}}</pre>
     <Hero>
       <template #title>
         Your guide to cooking across borders with easy conversions and tips.

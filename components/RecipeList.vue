@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { ParsedContent } from "@nuxt/content/dist/runtime/types";
+import type { NavItem } from "@nuxt/content/dist/runtime/types";
 
 defineProps<{
-  pages: Array<ParsedContent>;
+  pages: NavItem[] | null;
 }>();
 </script>
 

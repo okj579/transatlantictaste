@@ -19,7 +19,7 @@ const colorsDropdown = computed(() =>
     code,
     icon,
     label: t(`themes.${code}`),
-  })),
+  }))
 );
 </script>
 
@@ -53,8 +53,8 @@ const colorsDropdown = computed(() =>
         <div class="flex items-center -mr-1.5">
           <USelectMenu
             :options="colorsDropdown"
-            :modelValue="{ name: colorMode.preference }"
             by="code"
+            :modelValue="{ code: colorMode.preference }"
             @update:modelValue="({ code }) => (colorMode.preference = code)"
           >
             <UButton

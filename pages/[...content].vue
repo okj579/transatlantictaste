@@ -6,6 +6,6 @@ if (!doc.value) showError({ statusCode: 404 });
 
 <template>
   <NuxtLayout :name="doc?.layout ?? 'content'">
-    <Content :doc />
+    <Content :doc="doc" />
   </NuxtLayout>
 </template>

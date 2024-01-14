@@ -1,0 +1,1 @@
+import n from"./ContentRenderer.FXZpJXmS.js";import{g as t,o as r,i as a,w as c,n as s}from"./entry._RxJvKfp.js";const d=t({__name:"Content",props:{doc:{}},setup(m){return(e,p)=>{const o=n;return e.doc?(r(),a(o,{key:0,value:e.doc},{empty:c(()=>[]),_:1},8,["value"])):s("",!0)}}});export{d as _};

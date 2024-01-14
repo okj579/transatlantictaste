@@ -16,7 +16,7 @@ defineProps<{
       <div v-if="cookTime">Cook time: {{ cookTime }}</div>
     </div>
 
-    <IngredientList :ingredients :groups />
+    <IngredientList :ingredients="ingredients" :groups="groups" />
 
     <slot name="default" />
 

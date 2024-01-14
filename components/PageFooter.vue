@@ -5,7 +5,7 @@ const { data: links } = await useAsyncData(() =>
   queryContent()
     .where({ _path: { $in: paths } })
     .only(["_path", "title", "navigation"])
-    .find(),
+    .find()
 );
 </script>
 <template>
