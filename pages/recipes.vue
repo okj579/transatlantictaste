@@ -1,12 +1,12 @@
 <script setup lang="ts">
-const { data: subpages } = useSubpages();
+const { data: doc } = useContentPage();
+if (doc.value) useContentHead(doc.value);
+const { data: pages } = useSubpages();
 </script>
 <template>
   <NuxtLayout>
-    <ContentDoc class="prose pb-10">
-      <template #empty></template>
-    </ContentDoc>
+    <Content :doc class="prose pb-10" />
 
-    <RecipeList :pages="subpages" />
+    <RecipeList :pages />
   </NuxtLayout>
 </template>

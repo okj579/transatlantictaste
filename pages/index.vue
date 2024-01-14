@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const { navDirFromPath } = useContentHelpers();
 const { navigation } = await useNavigation();
+const {data: doc} = useContentPage();
+if (doc.value) useContentHead(doc.value);
 const recipes = computed(
   () =>
     navigation.value &&
