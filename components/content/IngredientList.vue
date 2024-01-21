@@ -1,18 +1,9 @@
 <script setup lang="ts">
-interface Ingredient {
-  amount: string;
-  name: string;
-  link?: string;
-  translation?: string;
-}
-interface Group {
-  title: string;
-  ingredients: Ingredient[];
-}
+import type { IngredientGroup, Ingredient } from "~/types/recipes";
 
 defineProps<{
   ingredients: Ingredient[];
-  groups?: Group[];
+  groups?: IngredientGroup[];
 }>();
 
 const localePath = useLocalePath();
@@ -30,13 +21,15 @@ const showTranslation = ref(false);
     </div>
     <table class="table-auto w-auto m-0">
       <tbody v-for="group in [{ ingredients }, ...(groups ?? [])]">
-        <tr v-if="group.title" class="border-b-0">
-          <th colspan="2">
+        <tr v-if="'title' in group" class="border-b-0">
+          <th colspan="3">
             <h4>{{ group.title }}</h4>
           </th>
         </tr>
         <tr v-for="(ingredient, i) in group.ingredients" :key="i" class="">
-          <td class="text-right">{{ ingredient.amount }}</td>
+          <td class="text-right">
+            <IngredientAmount :amount="ingredient.amount" />
+          </td>
           <td>
             <UPopover
               v-if="!showTranslation && ingredient.translation"

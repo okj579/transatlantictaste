@@ -5,6 +5,7 @@ image: /images/pumpkin-pie.jpg
 
 ::Recipe
 ---
+name: Pumpkin Pie
 ingredients:
     - amount: 1
       name: Hokkaido pumpkin  
@@ -13,31 +14,42 @@ ingredients:
       link: /tips-ingredients/eggs
     - amount: 1
       name: egg yolk
-    - amount: 1 cup / 200 g
+    - amount:
+        ml: 240
+        g: 200
       name: whole cane sugar
       link: /tips-ingredients/brown-sugar
       translation: brauner Zucker, Rohrohrzucker
-    - amount: 1/2 tsp
-      name: salt  
-    - amount: 2 tsp
+    - amount: 
+        ml: 2.5
+      name: salt
+    - amount:
+        ml: 10
       name:  cinnamon
       translation: Zimt
-    - amount: 1 tsp 
+    - amount: 
+        ml: 5 
       name: ground ginger
       translation: Ingwer  
-    - amount: 1/4 tsp 
+    - amount: 
+        ml: 1.25 
       name: ground nutmeg  
       translation: Muskatnuss
-    - amount: 1/4 tsp 
+    - amount:
+        ml: 1.25 
       name: ground cloves
       translation: Nelken
-    - amount: 1/8 tsp 
+    - amount:
+        ml: 0.625
       name: ground cardamom
       translation: Kardamom
-    - amount: 200 g 
+    - amount:
+        imperial: false
+        ml: 200
+        g: 200
       name: cream
 
-    - amount: 1 
+    - amount: 1
       name: pie crust or puff pastry
       translation: Blätterteig
 ---

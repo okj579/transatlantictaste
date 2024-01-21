@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import type { IngredientGroup, Ingredient } from "~/types/recipes";
+
 defineProps<{
   name: string;
   prepTime?: string;
   serves?: number;
   cookTime?: string;
-  ingredients: any[];
-  groups?: any[];
+  ingredients: Ingredient[];
+  groups?: IngredientGroup[];
 }>();
 </script>
 <template>
