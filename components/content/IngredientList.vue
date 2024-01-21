@@ -28,7 +28,10 @@ const showTranslation = ref(false);
         </tr>
         <tr v-for="(ingredient, i) in group.ingredients" :key="i" class="">
           <td class="text-right">
-            <IngredientAmount :amount="ingredient.amount" />
+            <IngredientAmount
+              v-if="ingredient.amount"
+              :amount="ingredient.amount"
+            />
           </td>
           <td>
             <UPopover

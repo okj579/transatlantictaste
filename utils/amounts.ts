@@ -7,10 +7,7 @@ import {
 
 const quantity = (amount: number, unit: string): Quantity => ({ amount, unit });
 
-export const parseAmount = (amountInput: AmountInput): IngredientQuantity => {
-  // computed<IngredientQuantity>(() => {
-  const input = unref(amountInput);
-
+export const parseAmount = (input: AmountInput): IngredientQuantity => {
   const result: IngredientQuantity = { volume: {}, mass: {} };
 
   if (typeof input === "string" || typeof input === "number") {
