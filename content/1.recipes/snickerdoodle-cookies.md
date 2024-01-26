@@ -3,34 +3,23 @@ title: Snickerdoodle Cookies
 image: /images/snickerdoodles.jpg
 ---
 
-::recipe
----
-name: Snickerdoodle Cookies
-ingredients:
-  - amount: 1 cup
-    name: butter
-  - amount: 1 1/2 cups
-    name: sugar
-  - amount: 2 
-    name: eggs
-    link: /tips-ingredients/eggs 
-  - amount: 1 tsp
-    name: vanilla extract  
-  - amount: 2 3/4 cups
-    name: flour
-  - amount: 4 tsp
-    name: Weinsteinbackpulver
-    link: /tips-ingredients/cream-of-tartar
-  - amount: 1/2 tsp
-    name: salt
-groups:
-  - title: For cinnamon sugar
-    ingredients:
-    - amount: 3 Tbsp
-      name: sugar
-    - amount: 1 Tbsp
-      name: cinnamon
----
+::recipe{name="Snickerdoodle Cookies"}
+#ingredients
+
+| amount     | mass | name                | translation | link                              |
+|------------|------|---------------------|-------------|-----------------------------------|
+| 1 cups     |      | butter              |             |                                   |
+| 1.5 cups   |      | sugar               |             |                                   |
+| 2          |      | eggs                |             | /tips-ingredients/eggs            |
+| 2 3/4 cups |      | flour               |             |                                   |
+| 4 tsp      |      | Weinsteinbackpulver |             | /tips-ingredients/cream-of-tartar |
+| 1/2 tsp    |      | salt                |             |                                   |
+
+# For cinnamon sugar
+| amount | name     |
+|--------|----------|
+| 3 Tbsp | sugar    |
+| 1 Tbsp | cinnamon |
 
 #steps
 1. Mix together flour, baking powder and salt and set aside

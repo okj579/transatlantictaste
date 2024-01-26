@@ -1,5 +1,9 @@
+import ContentTransformer from "./modules/content-transformer/module";
+import { resolve } from "pathe";
+
 export default defineNuxtConfig({
   modules: [
+    ContentTransformer,
     "@nuxt/ui",
     "@nuxt/content",
     "@nuxt/image",
@@ -26,4 +30,9 @@ export default defineNuxtConfig({
     langDir: "lang",
     strategy: "no_prefix",
   },
+  // hooks: {
+  //   "content:context": (ctx) => {
+  //     ctx.transformers.push(resolve("./content-transformer/transformer"));
+  //   },
+  // },
 });

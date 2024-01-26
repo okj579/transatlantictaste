@@ -34,21 +34,12 @@ const showTranslation = ref(false);
             />
           </td>
           <td>
-            <UPopover
+            <Tooltip
               v-if="!showTranslation && ingredient.translation"
-              mode="hover"
-              class="inline-block"
-              :popper="{ offsetSkid: 20 }"
+              :tooltip="ingredient.translation"
             >
-              <span class="underline decoration-dotted cursor-help">
-                {{ ingredient.name }}
-              </span>
-              <template #panel>
-                <div class="p-4 pointer-events-none">
-                  {{ ingredient.translation }}
-                </div>
-              </template>
-            </UPopover>
+              {{ ingredient.name }}
+            </Tooltip>
             <span v-else>{{ ingredient.name }}</span>
             <NuxtLink
               v-if="ingredient.link"

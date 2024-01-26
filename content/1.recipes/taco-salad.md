@@ -3,62 +3,43 @@ title: Taco Salad
 image: /images/taco-salad.jpg
 ---
 
+::recipe{name="Taco salad"}
+#ingredients
 
-::recipe
----
-name: Taco salad
-ingredients:
-  - amount: 400 g
-    name: Ground beef
-    translation: Rinderhackfleisch
-  - amount: 250 g
-    name: Cremini Mushrooms
-    translation: Champignons
-  - amount: 1 can (240 g)
-    name: Kidney beans
-  - amount: 1
-    name: onion
-  - amount: 1 clove
-    name: garlic
-  - amount: 1 Tbsp
-    name: Taco seasoning 
-groups:
-  - title: Salsa
-    ingredients:
-      - amount: 1
-        name: Cucumber
-      - amount: 3
-        name: Tomatoes
-      - amount: 1
-        name: Bell pepper
-        translation: Paprika
-      - name: oregano
-      - amount: 1
-        name: chili pepper
-        translation: Chilischote / Peperoni
-  - title: Guacamole
-    ingredients:
-      - amount: 2
-        name: Avocados
-      - amount: 1
-        name: lime
-      - amount: 1 tsp
-        name: salt
-      - amount: 1
-        name: chili pepper
-        translation: Chilischote / Peperoni
-      - amount: 1 Tbsp
-        name: olive oil
-  - title: Toppings
-    ingredients:
-      - amount: 1 bag
-        name: Tortilla chips (salted)
-      - name: Lettuce
-      - name: Cheddar cheese, shredded
-      - name: Sour cream
-        translation: Sauerrahm
----
+| amount        | name              | translation       |
+|---------------|-------------------|-------------------|
+| 400 g         | ground beef       | Rinderhackfleisch |
+| 250 g         | cremini mushrooms | Champignons       |
+| 1 can @ 240 g | Kidney beans      | Kidnerbohnen      |
+| 1             | onion             | Zwiebel           |
+| 1 clove       | garlic            | Knoblauch         |
+| 1 Tbsp        | taco seasoning    |                   |
 
+# Salsa
+| amount | name         | translation              |
+|--------|--------------|--------------------------|
+| 1      | cucumber     | Gurke                    |
+| 3      | tomatoes     | Tomaten                  |
+| 1      | bell pepper  | Paprika                  |
+|        | oregano      |                          |
+| 1      | chili pepper | Chilischote / Peperoni   |
+
+# Guacamole
+| amount | name         | translation            |
+|--------|--------------|------------------------|
+| 2      | avocados     | Avocado                |
+| 1      | lime         | Limette                |
+| 1 tsp  | salt         | Salz                   |
+| 1      | chili pepper | Chilischote / Peperoni |
+| 1 Tbsp | olive oil    | Olivenöl               |
+   
+# Toppings
+| amount | name                     | translation |
+|--------|--------------------------|-------------|
+| 1 bag  | tortilla chips (salted)  |             |
+|        | cheddar cheese, shredded |             |
+|        | sour cream               | Sauerrahm   |
+   
 
 #steps
 1. **Taco meat**: Chop the onion and mushrooms. Add the onion to a hot pan and fry until they are translucent. Add the ground beef, garlic and taco seasoning and cook through. Then add the mushrooms and beans and cook until the mushrooms have lost most of their volume. Set aside.

@@ -3,56 +3,24 @@ title: Pumpkin Pie
 image: /images/pumpkin-pie.jpg
 ---
 
-::Recipe
----
-name: Pumpkin Pie
-ingredients:
-    - amount: 1
-      name: Hokkaido pumpkin  
-    - amount: 3
-      name: eggs
-      link: /tips-ingredients/eggs
-    - amount: 1
-      name: egg yolk
-    - amount:
-        ml: 240
-        g: 200
-      name: whole cane sugar
-      link: /tips-ingredients/brown-sugar
-      translation: brauner Zucker, Rohrohrzucker
-    - amount: 
-        ml: 2.5
-      name: salt
-    - amount:
-        ml: 10
-      name:  cinnamon
-      translation: Zimt
-    - amount: 
-        ml: 5 
-      name: ground ginger
-      translation: Ingwer  
-    - amount: 
-        ml: 1.25 
-      name: ground nutmeg  
-      translation: Muskatnuss
-    - amount:
-        ml: 1.25 
-      name: ground cloves
-      translation: Nelken
-    - amount:
-        ml: 0.625
-      name: ground cardamom
-      translation: Kardamom
-    - amount:
-        imperial: false
-        ml: 200
-        g: 200
-      name: cream
+::Recipe{name="Pumpkin Pie"}
+#ingredients
 
-    - amount: 1
-      name: pie crust or puff pastry
-      translation: Blätterteig
----
+| amount  | mass  | name                     | translation                   | link                            |
+|---------|-------|--------------------------|-------------------------------|---------------------------------|
+| 1       |       | Hokkaido pumpkin         |                               |                                 |
+| 3       |       | eggs                     |                               | /tips-ingredients/eggs          |
+| 1       |       | egg yolk                 |                               |                                 |
+| 1 cups  | 200 g | whole cane sugar         | brauner Zucker, Rohrohrzucker | /tips-ingredients/brown-sugar   |
+| 1/2 tsp |       | salt                     |                               |                                 |
+| 2 tsp   |       | cinnamon                 | Zimt                          |                                 |
+| 1 tsp   |       | ground ginger            | Ingwer, gemahlen              |                                 |
+| 1/4 tsp |       | nutmeg                   | Muskatnuss                    |                                 |
+| 1/4 tsp |       | ground cloves            | Nelken, gemahlen              |                                 |
+| 1/8 tsp |       | cardamom                 | Kardamom                      |                                 |
+|         | 200 g | cream                    | Schlagsahne                   |                                 |
+| 1       |       | pie crust or puff pastry | Blätterteig                   |                                 |
+
 #steps
 1. **For the pumpkin purée:** Cut the pumpkin in half and scoop out the seeds. Place the halves on a lined baking sheet and roast in the oven at 175°C (350°F) for about 45 minutes until the flesh is soft. When the pumpkin is cool enough to handle, scoop out the flesh and mash with a fork. This will keep in the fridge for a few days, if you'd like to prepare it in advance.
 2. **For the filling:** Beat the eggs and mix in the sugar, spices, puréed pumpkin and cream.

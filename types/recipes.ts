@@ -1,12 +1,15 @@
-export type AmountInput =
-  | string
-  | number
-  | {
-      text?: string;
-      imperial?: false;
-      ml?: number;
-      g?: number;
-    };
+export enum Unit {
+  TSP = "tsp",
+  TBSP = "Tbsp",
+  CUP = "cups",
+  ML = "ml",
+  G = "g",
+}
+
+interface AmountObject extends Partial<Record<Unit, number>> {
+  text?: string;
+}
+export type AmountInput = string | number | AmountObject;
 
 export interface IngredientQuantity {
   text?: string;

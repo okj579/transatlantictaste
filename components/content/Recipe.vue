@@ -6,7 +6,7 @@ defineProps<{
   prepTime?: string;
   serves?: number;
   cookTime?: string;
-  ingredients: Ingredient[];
+  ingredients?: Ingredient[];
   groups?: IngredientGroup[];
 }>();
 </script>
@@ -14,11 +14,13 @@ defineProps<{
   <div>
     <div>
       <div v-if="serves">Serves: {{ serves }}</div>
-      <div v-if="prepTime">Preperation time: {{ prepTime }}</div>
+      <div v-if="prepTime">Preparation time: {{ prepTime }}</div>
       <div v-if="cookTime">Cook time: {{ cookTime }}</div>
     </div>
 
-    <IngredientList :ingredients="ingredients" :groups="groups" />
+    <slot name="ingredients">
+      <IngredientList :ingredients="ingredients" :groups="groups" />
+    </slot>
 
     <slot name="default" />
 

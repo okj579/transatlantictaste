@@ -6,17 +6,21 @@ interface CreditsEntry {
   source?: string;
 }
 
-export default function useImageCredits() {
+export function useImageCreditsList() {
   const { data } = useAsyncData("imageCredits", () =>
     queryContent<{ body: CreditsEntry[] }>("_image-credits")
       .only(["body"])
       .findOne(),
   );
+  return computed<CreditsEntry[]>(() => {
+    return data.value?.body ?? [];
+  });
+}
+
+export default function useImageCredits() {
+  const list = useImageCreditsList();
   return computed<Record<string, CreditsEntry>>(() => {
-    if (!data.value) return {};
-    const entries = Object.fromEntries(
-      data.value.body.map((v) => [v.image, v]),
-    );
+    const entries = Object.fromEntries(list.value.map((v) => [v.image, v]));
     return new Proxy(entries, {
       get: (target, p: string) =>
         target[p] ?? target[p.replace(/^\/?images\/?/, "")],

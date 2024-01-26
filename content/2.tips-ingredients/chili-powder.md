@@ -9,16 +9,21 @@ In an American kitchen, chili powder is one of the basic spices you need for all
 ::Recipe
 ---
 ingredients:
-    - amount: 2 tsp
+    - amount:
+        tsp: 2
       name: garlic powder
-    - amount: 2 tsp
+    - amount:
+        tsp: 2
       name: cumin
       translation: Kreuzkümmel
-    - amount: 1 tsp
+    - amount:
+        tsp: 1
       name: cayenne pepper
-    - amount: 1 tsp
+    - amount:
+        tsp: 1
       name: oregano
-    - amount: 1 tsp
+    - amount:
+        tsp: 1
       name: sweet paprika
       translation: Paprikagewürz (edelsüß)
 ---
