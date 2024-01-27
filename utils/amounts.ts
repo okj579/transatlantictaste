@@ -1,22 +1,16 @@
 import {
   type AmountInput,
-  Unit,
   type IngredientQuantity,
   type Quantity,
-  UnitSystem,
 } from "~/types/recipes";
-
-const units = new Set(Object.values(Unit).filter((x) => isNaN(Number(x))));
-const isUnit = (value: any): value is Unit => units.has(value);
-
-const imperialVolumes = {
-  [Unit.TSP]: 5,
-  [Unit.TBSP]: 15,
-  [Unit.CUP]: 240,
-} as { [k in Unit]: number };
+import { Unit, UnitSystem as S, UnitType as T, isUnit } from "~/services/units";
+import { unitData } from "~/services/unitData";
 
 export const parseAmount = (input: AmountInput): IngredientQuantity => {
-  const result: IngredientQuantity = { volume: {}, mass: {} };
+  const result: IngredientQuantity = {
+    [T.MASS]: {},
+    [T.VOLUME]: {},
+  };
 
   if (typeof input === "string") {
     input = Object.fromEntries(
@@ -38,35 +32,34 @@ export const parseAmount = (input: AmountInput): IngredientQuantity => {
     .replaceAll("/", "\u2044")
     .replaceAll(/\s{2,}/g, " ");
 
-  for (const [unit, conversion] of Object.entries(imperialVolumes) as [
-    Unit,
-    number,
-  ][]) {
+  const impVolUnits = unitData
+    .getBy({ system: S.IMPERIAL, type: T.VOLUME })
+    .values();
+  for (const { unit, conversion, type } of impVolUnits) {
     const num = parseFraction(input[unit]);
 
     if (num) {
-      result.volume[UnitSystem.IMPERIAL] = {
+      result[type][S.IMPERIAL] = {
         amount: num,
         amountText: formatFraction(num),
         unit,
       };
-      result.volume[UnitSystem.METRIC] = {
+      result[type][S.METRIC] = {
         amount: num * conversion,
         unit: Unit.ML,
       };
     }
   }
 
-  if (input[Unit.ML]) {
-    const unit = Unit.ML;
-    const amount = Number(input[unit]);
-    result.volume[UnitSystem.IMPERIAL] = convertImperialVolume(amount);
-    result.volume[UnitSystem.METRIC] = { amount, unit };
-  }
-  if (input[Unit.G]) {
-    const unit = Unit.G;
-    const amount = Number(input[unit]);
-    result.mass[UnitSystem.METRIC] = { amount, unit };
+  for (const { unit, type } of unitData.getBySystem(S.METRIC).values()) {
+    if (input[unit]) {
+      const amount = Number(input[unit]);
+      result[type][S.METRIC] = { amount, unit };
+
+      if (type === T.VOLUME) {
+        result[type][S.IMPERIAL] = convertImperialVolume(amount);
+      }
+    }
   }
 
   return result;
@@ -78,7 +71,7 @@ const convertImperialVolume = (ml: number): Quantity => {
     if (ml < 60) return Unit.TBSP;
     return Unit.CUP;
   })();
-  const amount = ml / imperialVolumes[unit];
+  const amount = ml / unitData.get(unit)!.conversion;
   const amountText = formatFraction(amount);
   return { amount, unit, amountText };
 };

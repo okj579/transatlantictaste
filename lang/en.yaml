@@ -6,4 +6,5 @@ themes:
   system: System
 
 options:
+  showMetric: Expand metric conversions
   showTranslation: Expand translations

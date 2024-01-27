@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { IngredientGroup, Ingredient } from "~/types/recipes";
+import { hash } from "ohash";
 
-defineProps<{
+const props = defineProps<{
   ingredients: Ingredient[];
   groups?: IngredientGroup[];
 }>();
@@ -9,15 +10,38 @@ defineProps<{
 const localePath = useLocalePath();
 const { t } = useI18n();
 
-const showTranslation = ref(false);
+const { showMetric, showTranslation } = toRefs(useRecipeSettings());
+
+const ingredientNames = [
+  ...props.ingredients.map((i) => i.name),
+  ...(props.groups?.flatMap?.((g) => g.ingredients).map((i) => i.name) ?? []),
+];
+interface Glossary {
+  ingredients: Record<string, string>;
+}
+const { data: translations } = useAsyncData(
+  `ingredients-${hash(ingredientNames)}`,
+  queryContent<Glossary>("_glossary").findOne,
+  {
+    transform: (d) => pick(d.ingredients, ingredientNames),
+  },
+);
+
+const getTranslation = (ingredient: Ingredient) =>
+  ingredient.translation ?? translations.value?.[ingredient.name];
 </script>
 <template>
   <div class="my-4">
-    <div class="overflow-hidden w-max mb-4">
-      <UCheckbox
-        v-model="showTranslation"
-        :label="t('options.showTranslation')"
-      />
+    <div class="flex flex-wrap gap-4">
+      <div class="overflow-hidden w-max mb-4">
+        <UCheckbox v-model="showMetric" :label="t('options.showMetric')" />
+      </div>
+      <div class="overflow-hidden w-max mb-4">
+        <UCheckbox
+          v-model="showTranslation"
+          :label="t('options.showTranslation')"
+        />
+      </div>
     </div>
     <table class="table-auto w-auto m-0">
       <tbody v-for="group in [{ ingredients }, ...(groups ?? [])]">
@@ -31,12 +55,13 @@ const showTranslation = ref(false);
             <IngredientAmount
               v-if="ingredient.amount"
               :amount="ingredient.amount"
+              :showMetric
             />
           </td>
           <td>
             <Tooltip
-              v-if="!showTranslation && ingredient.translation"
-              :tooltip="ingredient.translation"
+              v-if="!showTranslation && getTranslation(ingredient)"
+              :tooltip="getTranslation(ingredient)"
             >
               {{ ingredient.name }}
             </Tooltip>
@@ -52,7 +77,7 @@ const showTranslation = ref(false);
               />
             </NuxtLink>
           </td>
-          <td v-if="showTranslation">{{ ingredient.translation ?? "" }}</td>
+          <td v-if="showTranslation">{{ getTranslation(ingredient) ?? "" }}</td>
         </tr>
       </tbody>
     </table>

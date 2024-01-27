@@ -6,39 +6,39 @@ image: /images/taco-salad.jpg
 ::recipe{name="Taco salad"}
 #ingredients
 
-| amount        | name              | translation       |
-|---------------|-------------------|-------------------|
-| 400 g         | ground beef       | Rinderhackfleisch |
-| 250 g         | cremini mushrooms | Champignons       |
-| 1 can @ 240 g | Kidney beans      | Kidnerbohnen      |
-| 1             | onion             | Zwiebel           |
-| 1 clove       | garlic            | Knoblauch         |
-| 1 Tbsp        | taco seasoning    |                   |
+| amount        | name              |
+|---------------|-------------------|
+| 400 g         | ground beef       |
+| 250 g         | cremini mushrooms |
+| 1 can @ 240 g | kidney beans      |
+| 1             | onion             |
+| 1 clove       | garlic            |
+| 1 Tbsp        | taco seasoning    |
 
 # Salsa
-| amount | name         | translation              |
-|--------|--------------|--------------------------|
-| 1      | cucumber     | Gurke                    |
-| 3      | tomatoes     | Tomaten                  |
-| 1      | bell pepper  | Paprika                  |
-|        | oregano      |                          |
-| 1      | chili pepper | Chilischote / Peperoni   |
+| amount | name         |
+|--------|--------------|
+| 1      | cucumber     |
+| 3      | tomatoes     |
+| 1      | bell pepper  |
+|        | oregano      |
+| 1      | chili pepper |
 
 # Guacamole
-| amount | name         | translation            |
-|--------|--------------|------------------------|
-| 2      | avocados     | Avocado                |
-| 1      | lime         | Limette                |
-| 1 tsp  | salt         | Salz                   |
-| 1      | chili pepper | Chilischote / Peperoni |
-| 1 Tbsp | olive oil    | Olivenöl               |
+| amount | name         |
+|--------|--------------|
+| 2      | avocados     |
+| 1      | lime         |
+| 1 tsp  | salt         |
+| 1      | chili pepper |
+| 1 Tbsp | olive oil    |
    
 # Toppings
-| amount | name                     | translation |
-|--------|--------------------------|-------------|
-| 1 bag  | tortilla chips (salted)  |             |
-|        | cheddar cheese, shredded |             |
-|        | sour cream               | Sauerrahm   |
+| amount | name                     |
+|--------|--------------------------|
+| 1 bag  | tortilla chips (salted)  |
+|        | cheddar cheese, shredded |
+|        | sour cream               |
    
 
 #steps

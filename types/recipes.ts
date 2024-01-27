@@ -1,26 +1,13 @@
-export enum Unit {
-  TSP = "tsp",
-  TBSP = "Tbsp",
-  CUP = "cups",
-  ML = "ml",
-  G = "g",
-}
+import { Unit, UnitSystem, UnitType } from "~/services/units";
 
 interface AmountObject extends Partial<Record<Unit, number>> {
   text?: string;
 }
 export type AmountInput = string | number | AmountObject;
 
-export interface IngredientQuantity {
+export type IngredientQuantity = {
   text?: string;
-  volume: { [k in UnitSystem]?: Quantity };
-  mass: { [k in UnitSystem]?: Quantity };
-}
-
-export const enum UnitSystem {
-  IMPERIAL,
-  METRIC,
-}
+} & Record<UnitType, Partial<Record<UnitSystem, Quantity>>>;
 
 export interface Quantity {
   amount: number;
