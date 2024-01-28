@@ -10,7 +10,6 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@vueuse/nuxt",
     "@nuxt/devtools",
-    "@nuxthq/studio",
   ],
   css: ["~/assets/app.css"],
   content: {
