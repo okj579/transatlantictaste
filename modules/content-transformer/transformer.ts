@@ -45,17 +45,6 @@ const tableToJson = <T>(table: MarkdownNode) => {
   });
 };
 
-// const ingredientsTable = (table: MarkdownNode) => {
-//   const data = tableToJson(table);
-//   data.forEach(row => {
-//     if (row.mass) {
-//       row.amount = {
-//         text: row.amount
-//       };
-//     }
-//   })
-// }
-
 export default <ContentTransformer>{
   name: "transform-ingredient-tables",
   extensions: [".md"],

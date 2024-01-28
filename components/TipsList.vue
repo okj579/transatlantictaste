@@ -9,15 +9,17 @@ defineProps<{
 <template>
   <div v-for="page in pages" :key="page._path" class="mb-2 not-prose">
     <NuxtLink :to="page._path">
-      <UCard class="overflow-hidden">
+      <UCard class="overflow-hidden" :ui="{ body: { padding: '' } }">
         <div class="flex items-center justify-between">
-          <div class="text-lg">{{ page.title }}</div>
-          <div v-if="page.image" class="-my-5 -mr-4">
+          <div class="text-lg m-4">{{ page.title }}</div>
+          <div v-if="page.image" class="self-stretch">
             <NuxtPicture
               :src="page.image"
               :width="100"
               :height="80"
-              :placeholder="[50, 40, 25]"
+              class="h-full"
+              :img-attrs="{ class: 'h-full' }"
+              sizes="100px"
               alt=""
             />
           </div>

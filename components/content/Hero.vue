@@ -27,7 +27,7 @@ withDefaults(
     <div class="py-12 md:py-20 px-4 sm:px-6 relative">
       <div class="max-w-2xl mx-auto prose text-gray-100">
         <LogoLarge
-          class="h-56 mx-auto text-primary-400 drop-shadow-md dark:text-primary-300 mb-20"
+          class="h-56 mx-auto text-primary-400 drop-shadow-md dark:text-primary-300 mb-20 max-w-full"
         />
         <div
           class="text-xl sm:text-2xl font-extrabold mb-4 text-center drop-shadow"

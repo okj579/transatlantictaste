@@ -1,9 +1,5 @@
-import ContentTransformer from "./modules/content-transformer/module";
-import { resolve } from "pathe";
-
 export default defineNuxtConfig({
   modules: [
-    ContentTransformer,
     "@nuxt/ui",
     "@nuxt/content",
     "@nuxt/image",
@@ -21,6 +17,9 @@ export default defineNuxtConfig({
   ui: {
     icons: ["heroicons", "mdi"],
   },
+  image: {
+    format: ["avif", "webp"],
+  },
   i18n: {
     locales: [
       { code: "en", iso: "en-US", file: "en.yaml", label: "English" },
@@ -28,11 +27,6 @@ export default defineNuxtConfig({
     ],
     defaultLocale: "en",
     langDir: "lang",
-    strategy: "no_prefix",
+    strategy: "prefix_except_default",
   },
-  // hooks: {
-  //   "content:context": (ctx) => {
-  //     ctx.transformers.push(resolve("./content-transformer/transformer"));
-  //   },
-  // },
 });
