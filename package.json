@@ -26,5 +26,8 @@
     "overrides": {
       "vue": "3.4.8"
     }
+  },
+  "dependencies": {
+    "@nuxthq/studio": "^1.0.10"
   }
 }
