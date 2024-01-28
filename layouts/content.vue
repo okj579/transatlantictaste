@@ -9,7 +9,7 @@ const { data: doc } = useContentPage();
       v-if="doc?.image"
       class="float-end mb-4 sm:max-w-[50vw] sm:ml-4 xl:max-w-[600px]"
     >
-      <NuxtImg
+      <NuxtPicture
         :src="doc.image"
         :width="600"
         :height="400"

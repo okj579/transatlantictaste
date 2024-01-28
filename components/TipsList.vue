@@ -13,7 +13,7 @@ defineProps<{
         <div class="flex align-center justify-between">
           <div class="text-lg">{{ page.title }}</div>
           <div v-if="page.image" class="-my-6 -mr-6">
-            <NuxtImg
+            <NuxtPicture
               :src="page.image"
               width="100"
               height="80"

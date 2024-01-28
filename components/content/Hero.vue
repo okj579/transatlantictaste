@@ -13,11 +13,12 @@ withDefaults(
   <div
     class="relative -mt-8 left-[calc(50%-50vw)] w-[100vw] min-h-[calc(100vh-65px)]"
   >
-    <NuxtImg
+    <NuxtPicture
       class="absolute -z-2 w-full h-full object-cover"
+      :img-attrs="{ class: 'w-full h-full object-cover' }"
       :src="src"
-      :width="1216"
       :placeholder="[100, 50, 20]"
+      sizes="1216px"
       alt=""
     />
     <div

@@ -12,7 +12,7 @@ defineProps<{
       <NuxtLink :to="page._path">
         <UCard :ui="{ body: { padding: '' } }">
           <div v-if="page.image">
-            <NuxtImg
+            <NuxtPicture
               :src="page.image"
               :width="200"
               :height="160"
