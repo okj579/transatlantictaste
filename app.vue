@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const { t } = useI18n();
-useHead(useLocaleHead({ addSeoAttributes: true }));
 useHead(() => ({
   link: [{ rel: "icon", href: "/favicon.png" }],
   meta: [
