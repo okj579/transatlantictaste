@@ -4,9 +4,8 @@ const props = defineProps<{
 }>();
 const imageCredits = useImageCredits();
 const credit = computed(() => imageCredits.value[props.image]);
-const domain = computed(
-  () => credit.value?.link && new URL(credit.value.link).host,
-);
+const link = computed(() => credit.value.authorLink ?? credit.value.link);
+const domain = computed(() => link.value && new URL(link.value).host);
 </script>
 
 <template>
@@ -31,8 +30,8 @@ const domain = computed(
           </template>
           <br />
           <NuxtLink
-            v-if="credit.link"
-            :to="credit.link"
+            v-if="link"
+            :to="link"
             rel="external nofollow noopener noreferrer"
             target="_blank"
           >

@@ -12,6 +12,7 @@ defineProps<{
 </script>
 <template>
   <div>
+    <slot name="default" />
     <div>
       <div v-if="serves">Serves: {{ serves }}</div>
       <div v-if="prepTime">Preparation time: {{ prepTime }}</div>
@@ -22,7 +23,7 @@ defineProps<{
       <IngredientList :ingredients="ingredients" :groups="groups" />
     </slot>
 
-    <slot name="default" />
+    <slot name="description" />
 
     <slot name="steps" />
   </div>

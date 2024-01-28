@@ -1,6 +1,7 @@
 interface CreditsEntry {
   image: string;
   author?: string;
+  authorLink?: string;
   link?: string;
   license?: string;
   source?: string;
