@@ -29,9 +29,6 @@ devDependencies:
   '@nuxtjs/seo':
     specifier: 2.0.0-rc.5
     version: 2.0.0-rc.5(@lezer/common@1.2.1)(@nuxt/devtools@1.0.8)(@unhead/shared@1.8.10)(@vue/compiler-core@3.4.15)(h3@1.10.0)(nuxt@3.9.3)(postcss@8.4.33)(rollup@4.9.6)(unhead@1.8.10)(vite@5.0.12)(vue@3.4.8)(webpack@5.90.0)
-  '@nuxtjs/sitemap':
-    specifier: ^5.0.5
-    version: 5.0.5(@nuxt/devtools@1.0.8)(@vue/compiler-core@3.4.15)(h3@1.10.0)(nuxt@3.9.3)(postcss@8.4.33)(rollup@4.9.6)(vite@5.0.12)(vue@3.4.8)(webpack@5.90.0)
   '@vueuse/nuxt':
     specifier: ^10.7.2
     version: 10.7.2(nuxt@3.9.3)(rollup@4.9.6)(vue@3.4.8)
