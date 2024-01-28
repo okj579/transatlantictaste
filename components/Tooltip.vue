@@ -5,14 +5,15 @@ defineProps<{
 }>();
 </script>
 <template>
-  <UPopover mode="hover" class="inline-block" :popper="{ offsetSkid: 20 }">
+  <div class="inline-block relative group">
     <span class="underline decoration-dotted cursor-help">
       <slot name="default">{{ text }}</slot>
     </span>
-    <template #panel>
-      <div class="px-4 py-2 pointer-events-none">
-        <slot name="tooltip">{{ tooltip }}</slot>
-      </div>
-    </template>
-  </UPopover>
+    <UCard
+      class="absolute top-full mt-1 left-0 z-10 invisible group-hover:visible pointer-events-none"
+      :ui="{ body: { padding: 'px-4 py-2 ' }, strategy: 'override' }"
+    >
+      <slot name="tooltip">{{ tooltip }}</slot>
+    </UCard>
+  </div>
 </template>

@@ -32,7 +32,7 @@ const getTranslation = (ingredient: Ingredient) =>
 </script>
 <template>
   <div class="my-4">
-    <div class="flex flex-wrap gap-4">
+    <div class="flex flex-wrap gap-x-4">
       <div class="overflow-hidden w-max mb-4">
         <UCheckbox v-model="showMetric" :label="t('options.showMetric')" />
       </div>
