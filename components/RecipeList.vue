@@ -10,13 +10,14 @@ defineProps<{
   <div class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-2">
     <div v-if="pages" v-for="page in pages" :key="page._path" class="w-full">
       <NuxtLink :to="page._path">
-        <UCard :ui="{ body: { padding: '' } }">
+        <UCard :ui="{ body: { padding: '' } }" class="overflow-hidden">
           <div v-if="page.image">
             <NuxtPicture
               :src="page.image"
               :width="200"
               :height="160"
               class="w-full"
+              :img-attrs="{ class: 'w-full' }"
               :placeholder="[20, 16]"
               alt=""
             />

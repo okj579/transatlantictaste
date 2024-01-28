@@ -14,7 +14,7 @@ withDefaults(
     class="relative -mt-8 left-[calc(50%-50vw)] w-[100vw] min-h-[calc(100vh-65px)]"
   >
     <NuxtPicture
-      class="absolute -z-2 w-full h-full object-cover"
+      class="absolute -z-2 w-full h-full"
       :img-attrs="{ class: 'w-full h-full object-cover' }"
       :src="src"
       :placeholder="[100, 50, 20]"
