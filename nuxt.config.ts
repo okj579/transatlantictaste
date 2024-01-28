@@ -5,9 +5,15 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxtjs/i18n",
     "@vueuse/nuxt",
+    "@nuxtjs/seo",
     "@nuxt/devtools",
   ],
   css: ["~/assets/app.css"],
+  site: {
+    url: "https://www.transatlantictaste.com",
+    name: "Transatlantic Taste",
+    defaultLocale: "en",
+  },
   content: {
     navigation: { fields: ["title", "image"] },
     markdown: {

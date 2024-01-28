@@ -6,13 +6,16 @@ if (doc.value) useContentHead(doc.value);
 const recipes = computed(
   () =>
     navigation.value &&
-    navDirFromPath("/recipes", navigation.value)?.slice(1, 4)
+    navDirFromPath("/recipes", navigation.value)?.slice(1, 4),
 );
 const tips = computed(
   () =>
     navigation.value &&
-    navDirFromPath("/tips-ingredients", navigation.value)?.slice(1, 5)
+    navDirFromPath("/tips-ingredients", navigation.value)?.slice(1, 5),
 );
+useHead({
+  titleTemplate: "%pageTitle",
+});
 </script>
 <template>
   <NuxtLayout name="wide">
