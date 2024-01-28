@@ -34,7 +34,7 @@ If you want to make fruit compote to top it with, start that first and it can co
 ::
 
 
-### Fruit compote
+## Fruit compote
 ::recipe{name="Fruit Compote"}
 #ingredients
 

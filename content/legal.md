@@ -1,6 +1,10 @@
 ---
 title: Legal
 navigation: false
+head:
+  meta:
+    - name: robots
+      content: noindex
 ---
 
 Transatlantic Taste is based in Germany. As a purely non-commercial site, it does not fall under the imprint requirement (Impressumspflicht).

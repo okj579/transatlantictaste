@@ -16,6 +16,7 @@ const { data: doc } = useContentPage();
         class="rounded-2xl"
         :placeholder="[100, 67]"
         sizes="100vw sm:50vw xl:600px"
+        alt=""
       />
       <figcaption class="text-right mt-2">
         <ImageCredit :image="doc.image" />

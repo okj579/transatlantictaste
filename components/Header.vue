@@ -19,7 +19,7 @@ const colorsDropdown = computed(() =>
     code,
     icon,
     label: t(`themes.${code}`),
-  }))
+  })),
 );
 </script>
 
@@ -30,11 +30,8 @@ const colorsDropdown = computed(() =>
     <UContainer>
       <div class="flex items-center h-16">
         <div class="flex items-center gap-3">
-          <NuxtLink
-            to="/"
-            class="flex items-end gap-1.5 font-bold text-xl text-gray-900 dark:text-white"
-          >
-            <Logo class="h-6" />
+          <NuxtLink to="/">
+            <Logo class="h-6" :aria-label="t('siteTitle')" />
           </NuxtLink>
         </div>
 
@@ -61,6 +58,7 @@ const colorsDropdown = computed(() =>
               icon="dark:i-heroicons-moon i-heroicons-sun"
               color="gray"
               variant="ghost"
+              :title="t('theme')"
             />
           </USelectMenu>
 
@@ -70,6 +68,7 @@ const colorsDropdown = computed(() =>
             class="sm:hidden"
             icon="i-heroicons-bars-3-20-solid"
             @click="isMenuOpen = true"
+            :title="t('menu')"
           />
         </div>
       </div>
@@ -86,11 +85,8 @@ const colorsDropdown = computed(() =>
       >
         <template #header>
           <div class="flex justify-between gap-3">
-            <NuxtLink
-              to="/"
-              class="font-bold text-xl text-gray-900 dark:text-white"
-            >
-              Recipes
+            <NuxtLink to="/" class="flex items-center">
+              <Logo class="h-6" :aria-label="t('siteTitle')" />
             </NuxtLink>
             <UButton
               color="gray"

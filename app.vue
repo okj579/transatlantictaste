@@ -1,7 +1,16 @@
+<script setup lang="ts">
+const { t } = useI18n();
+useHead(useLocaleHead({ addSeoAttributes: true }));
+useHead(() => ({
+  link: [{ rel: "icon", href: "/favicon.png" }],
+  meta: [
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    { name: "description", content: t("siteDescription") },
+  ],
+}));
+</script>
+
 <template>
-  <Head>
-    <link rel="icon" href="/favicon.png" />
-  </Head>
   <div>
     <Header />
     <UContainer class="pt-8 pb-2">

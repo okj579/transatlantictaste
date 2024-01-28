@@ -74,6 +74,7 @@ const getTranslation = (ingredient: Ingredient) =>
               <UIcon
                 name="i-mdi-information-variant-circle-outline"
                 class="text-lg align-middle"
+                :title="t('info')"
               />
             </NuxtLink>
           </td>

@@ -18,6 +18,7 @@ defineProps<{
               width="100"
               height="80"
               :placeholder="[50, 40, 25]"
+              alt=""
             />
           </div>
         </div>

@@ -18,6 +18,7 @@ withDefaults(
       :src="src"
       :width="1216"
       :placeholder="[100, 50, 20]"
+      alt=""
     />
     <div
       class="absolute w-full h-full -z-1 bg-gray-700/50 dark:bg-gray-950/70"

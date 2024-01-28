@@ -14,10 +14,11 @@ defineProps<{
           <div v-if="page.image">
             <NuxtImg
               :src="page.image"
-              width="200"
-              height="160"
+              :width="200"
+              :height="160"
               class="w-full"
-              placeholder
+              :placeholder="[20, 16]"
+              alt=""
             />
           </div>
           <template #footer>
