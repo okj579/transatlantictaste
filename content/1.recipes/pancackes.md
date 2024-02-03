@@ -17,7 +17,7 @@ You can actually find pancake mix in Germany if you look hard enough, but I pref
 |       1 |       | eggs                     |
 |  1 cups |       | milk                     |
 |  2 Tbsp |       | oil                      |
-|         |       | fresh berries (optional) |
+|         |       | fresh berries (optional) | 
 
 #description
 If you want to make fruit compote to top it with, start that first and it can cook down while you make the pancakes.
