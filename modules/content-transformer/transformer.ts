@@ -7,7 +7,7 @@ import { visit } from "unist-util-visit";
 import { selectAll } from "unist-util-select";
 import { is } from "unist-util-is";
 import type { Node, Parent } from "unist";
-import type { Ingredient, IngredientGroup } from "~/types/recipes";
+import type { Ingredient, IngredientGroup } from "../../types/recipes";
 
 interface ElementNode<Tag extends string = string> extends MarkdownNode {
   type: "element";
@@ -35,7 +35,7 @@ const getText = (node: Node) =>
 
 const tableToJson = <T>(table: MarkdownNode) => {
   const columns = selectAll("[tag=thead] [tag=th]", table).map(getText);
-  return selectAll("[tag=tbody] > [tag=tr]", table).map((tr, i) => {
+  return selectAll("[tag=tbody] > [tag=tr]", table).map((tr) => {
     const values = (tr as Parent).children.map(getText);
     return Object.fromEntries(
       values
@@ -66,7 +66,17 @@ export default <ContentTransformer>{
             props.groups.push(group);
             break;
           case "table":
-            (group ?? props).ingredients.push(...tableToJson<Ingredient>(node));
+            const ingredients = tableToJson(node).map(
+              ({ amount, volume, mass, ...other }) => {
+                const amounts = [amount, volume, mass]
+                  .filter(Boolean)
+                  .flatMap((t) => t.split("@"))
+                  .map((t) => t.trim());
+                return { amount: amounts, ...other } as Ingredient;
+              },
+            );
+            // noinspection JSUnusedAssignment
+            (group ?? props).ingredients.push(...ingredients);
             break;
         }
       }

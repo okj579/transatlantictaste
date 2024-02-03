@@ -3,7 +3,7 @@ import { Unit, UnitSystem, UnitType } from "~/services/units";
 interface AmountObject extends Partial<Record<Unit, number>> {
   text?: string;
 }
-export type AmountInput = string | number | AmountObject;
+export type AmountInput = string | number | AmountObject | string[];
 
 export type IngredientQuantity = {
   text?: string;

@@ -12,19 +12,25 @@ export const parseAmount = (input: AmountInput): IngredientQuantity => {
     [T.VOLUME]: {},
   };
 
+  if (typeof input === "number") {
+    result.text = input.toString();
+    return result;
+  }
+
   if (typeof input === "string") {
+    // Convert to array format
+    input = input.split("@");
+  }
+
+  if (Array.isArray(input)) {
+    // Convert to object format
     input = Object.fromEntries(
-      input.split("@").map((input) => {
-        const amount = input.match(/^[\d\s\./]+ /)?.[0].trim();
+      input.map((input) => {
+        const amount = input.match(/^[\d\s./]+ /)?.[0].trim();
         const unit = amount && input.replace(amount, "").trim();
         return isUnit(unit) ? [unit, Number(amount)] : ["text", input];
       }),
     ) as object;
-  }
-
-  if (typeof input === "number") {
-    result.text = input.toString();
-    return result;
   }
 
   result.text = input.text
@@ -79,7 +85,7 @@ const convertImperialVolume = (ml: number): Quantity => {
 const parseFraction = (str: string | number | undefined) => {
   if (typeof str === "number") return str;
   if (typeof str !== "string") return;
-  const m = str.match(/(?:(\d*))?\b\s*(?:(\d*)\/(\d*))?/);
+  const m = str.match(/(\d*)?\b\s*(?:(\d*)\/(\d*))?/);
   if (!m) return;
   return Number(m[1] ?? 0) + Number(m[2] ?? 0) / Number(m[3] ?? 1);
 };

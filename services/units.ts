@@ -1,6 +1,6 @@
 export const enum UnitSystem {
-  IMPERIAL,
-  METRIC,
+  IMPERIAL = "I",
+  METRIC = "M",
 }
 
 export const enum UnitType {
