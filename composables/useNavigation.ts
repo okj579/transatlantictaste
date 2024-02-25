@@ -1,15 +1,21 @@
 import { dirname } from "pathe";
+import type {NavItem} from '@nuxt/content/dist/runtime/types'
 
 export default async function useNavigation() {
   const route = useRoute();
-  const { navPageFromPath } = useContentHelpers();
+  const { navPageFromPath, navDirFromPath } = useContentHelpers();
 
-  const { data: navigation } = await useAsyncData("navigation", () =>
-    fetchContentNavigation(),
+  const { data: navigation }: {data: Ref<NavItem[]>} = await useAsyncData("navigation", () =>
+    fetchContentNavigation(queryContent().sort({date: -1})),
   );
 
-  const dir = navPageFromPath(dirname(route.path), navigation.value!);
-  // const page = navPageFromPath(route.path, navigation.value!);
+  const dir = navPageFromPath(dirname(route.path), navigation.value);
 
-  return { navigation, dir };
+
+
+  return {
+    navigation,
+    dir,
+    navDirFromPath: (path: string) => navDirFromPath(path, navigation.value)
+  };
 }

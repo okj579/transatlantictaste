@@ -1,6 +1,7 @@
 ---
 title: Mom's Banana Bread
 image: /images/banana-bread.jpg
+date: 2024-02-25
 ---
 
 This banana bread recipe is a classic favorite of mine. With its comforting aroma and moist texture, it's more than just a treat—it's a symbol of home. Every slice brings back memories of cozy mornings and shared moments around the kitchen table. Simple yet heartwarming, this recipe is a testament to the joy of home baking.
