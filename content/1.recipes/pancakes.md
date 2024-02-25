@@ -1,6 +1,7 @@
 ---
 title: Pancakes
 image: /images/pancakes.jpg
+date: 2024-01-28
 ---
 
 You can actually find pancake mix in Germany if you look hard enough, but I prefer making them from scratch. This is the recipe I memorized as a child and still make to this day.

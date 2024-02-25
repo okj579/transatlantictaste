@@ -1,6 +1,7 @@
 ---
 title: Pumpkin Pie
 image: /images/pumpkin-pie.jpg
+date: 2023-12-30
 ---
 
 There's nothing that says fall like a good pumpkin pie! However, most American recipes will assume you have access to some ingredients that are harder to find elsewhere. With a few tweaks, though, this becomes a pretty easy recipe that I love to break out when entertaining, for Thanksgiving, or whenever I'm missing some good comfort desserts.

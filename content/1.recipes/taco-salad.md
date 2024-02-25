@@ -1,6 +1,7 @@
 ---
 title: Taco Salad
 image: /images/taco-salad.jpg
+date: 2023-12-30
 ---
 
 This is a slight twist on some Tex-Mex classics, served as make-your-own bowls. It's become one of our favorites and is always number one on the request list for a Sunday family lunch.
