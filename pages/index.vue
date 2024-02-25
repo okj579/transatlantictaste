@@ -1,18 +1,10 @@
 <script setup lang="ts">
-const { navDirFromPath } = useContentHelpers();
-const { navigation } = await useNavigation();
 const { data: doc } = await useContentPage();
 if (doc.value) useContentHead(doc.value);
-const recipes = computed(
-  () =>
-    navigation.value &&
-    navDirFromPath("/recipes", navigation.value)?.slice(1, 4),
-);
-const tips = computed(
-  () =>
-    navigation.value &&
-    navDirFromPath("/tips-ingredients", navigation.value)?.slice(1, 5),
-);
+
+const recipes = useSubpages("/recipes", 3);
+const tips = useSubpages("/tips-ingredients", 4);
+
 useHead({
   titleTemplate: "%pageTitle",
 });

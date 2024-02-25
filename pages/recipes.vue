@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { data: doc } = await useContentPage();
 if (doc.value) useContentHead(doc.value);
-const { data: pages } = useSubpages();
+const pages = useSubpages();
 </script>
 <template>
   <NuxtLayout>

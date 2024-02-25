@@ -2,7 +2,7 @@
 import type { NavItem } from "@nuxt/content/dist/runtime/types";
 
 defineProps<{
-  pages: NavItem[] | null;
+  pages?: NavItem[];
 }>();
 </script>
 

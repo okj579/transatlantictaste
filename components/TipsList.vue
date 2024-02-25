@@ -2,12 +2,12 @@
 import type { NavItem } from "@nuxt/content/dist/runtime/types";
 
 defineProps<{
-  pages: NavItem[] | null;
+  pages?: NavItem[];
 }>();
 </script>
 
 <template>
-  <div v-for="page in pages" :key="page._path" class="mb-2 not-prose">
+  <div v-if="pages" v-for="page in pages" :key="page._path" class="mb-2 not-prose">
     <NuxtLink :to="page._path">
       <UCard class="overflow-hidden" :ui="{ body: { padding: '' } }">
         <div class="flex items-center justify-between">

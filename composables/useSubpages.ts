@@ -1,26 +1,16 @@
 import type { NavItem } from "@nuxt/content/dist/runtime/types";
+import type { MaybeRef } from 'vue'
 
-export function useSubpages() {
-  const route = useRoute();
-  const currentPage = computed(() => route.fullPath.slice(1));
-  const indexPages = computed(() => {
-    const path = currentPage.value.split("/");
-    return path.map((_, i) => "/" + path.slice(0, i + 1).join("/"));
-  });
-  return useAsyncData(`subpages-${route.fullPath}`, async () => {
-    const nav = await fetchContentNavigation(
-      queryContent(currentPage.value).where({
-        _path: {
-          $not: {
-            $in: indexPages.value,
-          },
-        },
-      })
-    );
-    return indexPages.value.reduce(
-      (nav, path): NavItem[] =>
-        nav.find((n) => n._path === path)?.children ?? [],
-      nav
+export function useSubpages(path?: MaybeRef<string>, limit: number = 50) {
+  const _path = path ? ref(path) : toRef(useRoute(), 'fullPath');
+
+  return asyncComputed<NavItem[] | undefined>( async () => {
+    const { navDirFromPath } = await useNavigation();
+    return (
+      navDirFromPath(_path.value)
+        ?.filter((n) => n._path !== _path.value)
+        ?.slice(0, limit)
+        ?? []
     );
   });
 }
