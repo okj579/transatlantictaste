@@ -1,5 +1,5 @@
 ---
-title: Pancackes
+title: Pancakes
 image: /images/pancakes.jpg
 ---
 
