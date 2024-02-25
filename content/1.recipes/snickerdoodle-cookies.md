@@ -1,6 +1,7 @@
 ---
 title: Snickerdoodle Cookies
 image: /images/snickerdoodles.jpg
+date: 2023-12-30
 ---
 
 Snickerdoodles were a childhood favorite of mine, especially at Christmastime. They've become one of my German family's most common request, now that they've come to know them. It's also one of the easiest recipes to make. The one trick is finding cream of tartar, but that's actually available in specially formulated baking powder (Weinsteinbackpulver) in any supermarket.
