@@ -69,3 +69,9 @@ body:
     link: https://unsplash.com/photos/sliced-cakes-MssPSnkV1yM
     authorLink: https://unsplash.com/@jeffsiepman
     source: Unsplash
+
+  - image: green-beans.jpg
+    author: Mitchell Luo
+    authorLink: https://unsplash.com/@mitchel3uo
+    link: https://unsplash.com/photos/green-leaves-on-black-round-plate-caeCP50psL8
+    source: Unsplash
