@@ -1,34 +1,20 @@
 <script setup lang="ts">
 const { navigation } = await useNavigation();
 
-const colorMode = useColorMode();
 const { t } = useI18n();
 
 const isMenuOpen = ref(false);
 watch(useRouter().currentRoute, () => {
   isMenuOpen.value = false;
 });
-
-const COLOR_ICONS = {
-  dark: "i-heroicons-moon",
-  light: "i-heroicons-sun",
-  system: "i-heroicons-computer-desktop",
-};
-const colorsDropdown = computed(() =>
-  Object.entries(COLOR_ICONS).map(([code, icon]) => ({
-    code,
-    icon,
-    label: t(`themes.${code}`),
-  })),
-);
 </script>
 
 <template>
   <header
-    class="sticky top-0 z-50 w-full backdrop-blur flex-none border-b border-gray-900/10 dark:border-gray-50/[0.06] bg-white/75 dark:bg-gray-900/75"
+    class="sticky top-0 z-50 w-full flex-none border-b border-gray-900/10 bg-white/75 backdrop-blur dark:border-gray-50/[0.06] dark:bg-gray-900/75"
   >
     <UContainer>
-      <div class="flex items-center h-16">
+      <div class="flex h-16 items-center">
         <div class="flex items-center gap-3">
           <NuxtLink to="/">
             <Logo class="h-6" :aria-label="t('siteTitle')" />
@@ -47,20 +33,8 @@ const colorsDropdown = computed(() =>
 
         <div class="grow" />
 
-        <div class="flex items-center -mr-1.5">
-          <USelectMenu
-            :options="colorsDropdown"
-            by="code"
-            :modelValue="{ code: colorMode.preference }"
-            @update:modelValue="({ code }) => (colorMode.preference = code)"
-          >
-            <UButton
-              icon="dark:i-heroicons-moon i-heroicons-sun"
-              color="gray"
-              variant="ghost"
-              :title="t('theme')"
-            />
-          </USelectMenu>
+        <div class="-mr-1.5 flex items-center">
+          <ColorModeSelector />
 
           <UButton
             color="gray"
@@ -76,7 +50,7 @@ const colorsDropdown = computed(() =>
 
     <USlideover v-model="isMenuOpen">
       <UCard
-        class="flex flex-col flex-1"
+        class="flex flex-1 flex-col"
         :ui="{
           body: { base: 'flex-1' },
           ring: '',
@@ -96,9 +70,9 @@ const colorsDropdown = computed(() =>
             />
           </div>
         </template>
-        <nav class="px-4 sm:px-6 py-4 sm:py-6">
+        <nav class="px-4 py-4 sm:px-6 sm:py-6">
           <ul>
-            <li v-for="(navItem, i) in navigation" :key="i" class="block my-2">
+            <li v-for="(navItem, i) in navigation" :key="i" class="my-2 block">
               <NuxtLink :to="navItem._path">
                 {{ navItem.title }}
               </NuxtLink>

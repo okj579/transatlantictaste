@@ -2,12 +2,12 @@ import type {
   ContentTransformer,
   MarkdownNode,
   ParsedContent,
-} from "@nuxt/content/dist/runtime/types";
+} from "@nuxt/content";
 import { visit } from "unist-util-visit";
 import { selectAll } from "unist-util-select";
 import { is } from "unist-util-is";
 import type { Node, Parent } from "unist";
-import type { Ingredient, IngredientGroup } from "../../types/recipes";
+import type { Ingredient, IngredientGroup } from "~/types/recipes";
 
 interface ElementNode<Tag extends string = string> extends MarkdownNode {
   type: "element";

@@ -11,16 +11,16 @@ useHead({
 </script>
 <template>
   <NuxtLayout name="wide">
-    <ContentRenderer :value="doc"/>
+    <ContentRenderer :value="doc" />
 
     <div class="mt-10">
-      <h3 class="text-3xl mb-8">Recipes</h3>
+      <h3 class="mb-8 text-3xl">Recipes</h3>
       <RecipeList :pages="recipes">
         <template #extra-tiles>
-          <div class="flex justify-center items-center">
+          <div class="flex items-center justify-center">
             <NuxtLink
               to="/recipes"
-              class="underline w-full h-full bg-gray-500/10 backdrop-blur rounded-lg min-h-36 flex items-center justify-center"
+              class="flex h-full min-h-36 w-full items-center justify-center rounded-lg bg-gray-500/10 underline backdrop-blur"
             >
               <span>More Recipes...</span>
             </NuxtLink>
@@ -30,12 +30,11 @@ useHead({
     </div>
 
     <div class="mt-10">
-      <h3 class="text-3xl mb-8">Tips & Ingredients</h3>
+      <h3 class="mb-8 text-3xl">Tips & Ingredients</h3>
       <TipsList :pages="tips" />
-      <NuxtLink to="/tips-ingredients" class="underline my-4 px-6 inline-block">
+      <NuxtLink to="/tips-ingredients" class="my-4 inline-block px-6 underline">
         More Tips & Ingredients...
       </NuxtLink>
     </div>
-
   </NuxtLayout>
 </template>

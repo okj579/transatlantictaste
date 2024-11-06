@@ -26,9 +26,13 @@ export const parseAmount = (input: AmountInput): IngredientQuantity => {
     // Convert to object format
     input = Object.fromEntries(
       input.map((input) => {
-        const amount = input.match(/^[\d\s./]+ /)?.[0].trim();
+        const amount = input.match(/^[\d\s./]+ /)?.[0].trim() ?? "";
         const unit = amount && input.replace(amount, "").trim();
-        return isUnit(unit) ? [unit, Number(amount)] : ["text", input];
+        if (!isUnit(unit)) return ["text", input];
+
+        const [n, d] = amount.split("/");
+        const amountNumber = Number(n) / (Number(d) || 1);
+        return [unit, amountNumber];
       }),
     ) as object;
   }

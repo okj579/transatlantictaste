@@ -11,10 +11,10 @@ withDefaults(
 
 <template>
   <div
-    class="relative -mt-8 left-[calc(50%-50vw)] w-[100vw] min-h-[calc(100vh-65px)]"
+    class="relative left-[calc(50%-50vw)] -mt-8 min-h-[calc(100vh-65px)] w-[100vw]"
   >
     <NuxtPicture
-      class="absolute -z-2 w-full h-full"
+      class="-z-2 absolute h-full w-full"
       :img-attrs="{ class: 'w-full h-full object-cover' }"
       :src="src"
       :placeholder="[100, 50, 20]"
@@ -22,20 +22,20 @@ withDefaults(
       alt=""
     />
     <div
-      class="absolute w-full h-full -z-1 bg-gray-700/50 dark:bg-gray-950/70"
+      class="-z-1 absolute h-full w-full bg-gray-700/50 dark:bg-gray-950/70"
     />
-    <div class="py-12 md:py-20 px-4 sm:px-6 relative">
-      <div class="max-w-2xl mx-auto prose text-gray-100">
+    <div class="relative px-4 py-12 sm:px-6 md:py-20">
+      <div class="prose dark:prose-invert mx-auto max-w-2xl text-gray-100">
         <LogoLarge
-          class="h-56 mx-auto text-primary-400 drop-shadow-md dark:text-primary-300 mb-20 max-w-full"
+          class="text-primary-400 dark:text-primary-300 mx-auto mb-20 h-56 max-w-full drop-shadow-md"
         />
         <div
-          class="text-xl sm:text-2xl font-extrabold mb-4 text-center drop-shadow"
+          class="mb-4 text-center text-xl font-extrabold drop-shadow sm:text-2xl"
         >
           <slot name="title" />
         </div>
         <div
-          class="text-lg dark:text-gray-300 p-4 backdrop-blur rounded-3xl bg-gray-500/20 px-8"
+          class="rounded-3xl bg-gray-500/20 p-4 px-8 text-lg backdrop-blur dark:text-gray-300"
         >
           <slot name="description" />
         </div>
@@ -43,7 +43,7 @@ withDefaults(
     </div>
     <ImageCredit
       :image="src"
-      class="absolute block bottom-2 right-4 text-subtle"
+      class="text-subtle absolute bottom-2 right-4 block"
     />
   </div>
 </template>

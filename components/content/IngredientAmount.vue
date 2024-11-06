@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { type AmountInput, type Quantity } from "~/types/recipes";
-import { parseAmount } from "~/utils/amounts";
 import { UnitSystem, UnitSystem as S, UnitType } from "~/services/units";
 import { UnitOptions } from "~/composables/useRecipeSettings";
 
@@ -22,8 +21,8 @@ const formatQuantity = (q?: Quantity) =>
 const COMBINED = Symbol("combined");
 type Mode = UnitSystem | typeof COMBINED;
 
-const hasAmount = (type: UnitType, system?: UnitSystem) => {
-  if (system) !!amounts[type][system];
+const hasAmount = (type: UnitType, system?: Mode) => {
+  if (system && system !== COMBINED) return !!amounts[type][system];
   return [S.IMPERIAL, S.METRIC].some((system) => amounts[type][system]);
 };
 const hasAllAmounts = (type: UnitType) => {
@@ -64,25 +63,25 @@ const getColumnName = (type: UnitType, mode: Mode) =>
     {{ amounts.text }}
   </div>
   <template v-for="type in [UnitType.VOLUME, UnitType.MASS]" :key="type">
-    <div
-      v-for="mode in displayModes[type]"
-      :key="mode"
-      :class="{
-        'cell text-nowrap text-right': true,
-        [`col-start-[${getColumnName(type, mode)}]`]: true,
-        'col-span-1': mode !== COMBINED,
-        'col-span-2': mode === COMBINED,
-      }"
-    >
-      <Tooltip
-        v-if="mode === COMBINED"
-        :tooltip="formatQuantity(amounts[type][S.METRIC])"
+    <template v-for="mode in displayModes[type]" :key="mode">
+      <div
+        v-if="hasAmount(type, mode)"
+        :class="[
+          'cell text-nowrap text-right',
+          `col-start-[${getColumnName(type, mode)}]`,
+          mode === COMBINED ? 'col-span-2' : 'col-span-1',
+        ]"
       >
-        {{ formatQuantity(amounts[type][S.IMPERIAL]) }}
-      </Tooltip>
-      <template v-else>
-        {{ formatQuantity(amounts[type][mode]) }}
-      </template>
-    </div>
+        <Tooltip
+          v-if="mode === COMBINED"
+          :tooltip="formatQuantity(amounts[type][S.METRIC])"
+        >
+          {{ formatQuantity(amounts[type][S.IMPERIAL]) }}
+        </Tooltip>
+        <template v-else>
+          {{ formatQuantity(amounts[type][mode]) }}
+        </template>
+      </div>
+    </template>
   </template>
 </template>

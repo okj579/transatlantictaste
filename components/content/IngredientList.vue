@@ -19,16 +19,15 @@ const ingredientNames = [
 interface Glossary {
   ingredients: Record<string, string>;
 }
-const { data: translations } = useAsyncData(
+const { data: translations } = await useAsyncData(
   `ingredients-${hash(ingredientNames)}`,
-  queryContent<Glossary>("_glossary").findOne,
-  {
-    transform: (d) => pick(d.ingredients, ingredientNames),
-  },
+  async () => (await queryContent<Glossary>("_glossary").findOne()).ingredients,
+  { pick: ingredientNames },
 );
-const getTranslation = (ingredient: Ingredient) =>
-  ingredient.translation ?? translations.value?.[ingredient.name];
+const getTranslation = ({ translation, name }: Ingredient) =>
+  translation ?? translations.value?.[name];
 </script>
+
 <template>
   <div class="my-4">
     <div class="ingredient-table m-0 grid w-auto">
@@ -52,9 +51,9 @@ const getTranslation = (ingredient: Ingredient) =>
                 {{ ingredient.name }}
               </Tooltip>
               <span v-else>{{ ingredient.name }}</span>
-              <NuxtLink
+              <NuxtLinkLocale
                 v-if="ingredient.link"
-                :to="localePath(ingredient.link)"
+                :to="ingredient.link"
                 class="ms-1"
               >
                 <UIcon
@@ -62,7 +61,7 @@ const getTranslation = (ingredient: Ingredient) =>
                   class="align-middle text-lg"
                   :title="t('info')"
                 />
-              </NuxtLink>
+              </NuxtLinkLocale>
             </div>
             <div v-if="showTranslation" class="cell">
               {{ getTranslation(ingredient) ?? "" }}
@@ -75,10 +74,20 @@ const getTranslation = (ingredient: Ingredient) =>
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .ingredient-table {
-  grid-template-columns: [vol volI] max-content [volM] max-content [mass massM] max-content [name] auto auto;
+  grid-template-columns: [vol volI] max-content [volM] max-content [mass massI] max-content [massM] max-content [name] auto auto;
 }
+/* safelist
+.col-start-[vol],
+.col-start-[volI],
+.col-start-[volM],
+.col-start-[mass],
+.col-start-[massI],
+.col-start-[massM],
+.col-start-[name] {
+}
+*/
 .ingredient-table :deep(.cell) {
   @apply px-2 py-1;
 }

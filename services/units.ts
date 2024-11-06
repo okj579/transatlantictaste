@@ -25,6 +25,8 @@ export interface UnitDefinition {
   conversion: number; // equivalent to this many g or ml
 }
 
+type Entry<T extends object, K extends keyof T = keyof T> = [K, T[K]];
+
 export const units = new Set(
   Object.values(Unit).filter((x) => isNaN(Number(x))),
 );

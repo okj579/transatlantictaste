@@ -7,7 +7,7 @@ const { data: doc } = useContentPage();
   <DefaultLayout>
     <figure
       v-if="doc?.image"
-      class="float-end mb-4 sm:max-w-[50vw] sm:ml-4 xl:max-w-[600px]"
+      class="float-end mb-4 sm:ml-4 sm:max-w-[50vw] xl:max-w-[600px]"
     >
       <NuxtPicture
         :src="doc.image"
@@ -18,12 +18,12 @@ const { data: doc } = useContentPage();
         sizes="100vw sm:50vw xl:600px"
         alt=""
       />
-      <figcaption class="text-right mt-2">
+      <figcaption class="mt-2 text-right">
         <ImageCredit :image="doc.image" />
       </figcaption>
     </figure>
 
-    <div class="prose">
+    <div class="prose dark:prose-invert">
       <slot />
     </div>
 

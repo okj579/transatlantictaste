@@ -23,8 +23,10 @@ export default defineNuxtConfig({
     },
   },
 
-  ui: {
-    icons: ["heroicons", "mdi"],
+  icon: {
+    serverBundle: { disabled: !process.dev },
+    clientBundle: { scan: true },
+    collections: ["heroicons", "mdi"],
   },
 
   image: {
@@ -33,11 +35,20 @@ export default defineNuxtConfig({
 
   i18n: {
     locales: [
-      { code: "en", iso: "en-US", file: "en.yaml", label: "English" },
-      // { code: 'de', iso: 'de-DE', file: 'de.yaml', label: 'Deutsch' },
+      { code: "en", language: "en-US", file: "en.yaml", label: "English" },
+      // { code: 'de', language: 'de-DE', file: 'de.yaml', label: 'Deutsch' },
     ],
     defaultLocale: "en",
-    langDir: "lang",
+    langDir: "locales",
     strategy: "prefix_except_default",
+    vueI18n: "i18n.config.ts",
   },
+
+  tailwindcss: {
+    config: {
+      safelist: ["col-start-[ma"],
+    },
+  },
+
+  compatibilityDate: "2024-10-30",
 });
