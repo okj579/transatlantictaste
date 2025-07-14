@@ -4,17 +4,17 @@ import { hash } from "ohash";
 
 const props = defineProps<{
   ingredients: Ingredient[];
-  groups?: IngredientGroup[];
+  groups?: IngredientGroup[] | "";
 }>();
+const groups = computed(() => props.groups || []);
 
-const localePath = useLocalePath();
 const { t } = useI18n();
 
 const { showTranslation } = toRefs(useRecipeSettings());
 
 const ingredientNames = [
   ...props.ingredients.map((i) => i.name),
-  ...(props.groups?.flatMap?.((g) => g.ingredients).map((i) => i.name) ?? []),
+  ...(groups.value.flatMap?.((g) => g.ingredients).map((i) => i.name) ?? []),
 ];
 interface Glossary {
   ingredients: Record<string, string>;
@@ -31,7 +31,7 @@ const getTranslation = ({ translation, name }: Ingredient) =>
 <template>
   <div class="my-4">
     <div class="ingredient-table m-0 grid w-auto">
-      <template v-for="group in [{ ingredients }, ...(groups ?? [])]">
+      <template v-for="group in [{ ingredients }, ...groups]">
         <div v-if="'title' in group" class="col-span-full border-b-0">
           <h4>{{ group.title }}</h4>
         </div>

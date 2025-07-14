@@ -24,7 +24,7 @@ export default defineNuxtConfig({
   },
 
   icon: {
-    serverBundle: { disabled: !process.dev },
+    // serverBundle: { disabled: !import.meta.dev },
     clientBundle: { scan: true },
     collections: ["heroicons", "mdi"],
   },
@@ -42,6 +42,8 @@ export default defineNuxtConfig({
     langDir: "locales",
     strategy: "prefix_except_default",
     vueI18n: "i18n.config.ts",
+    restructureDir: false,
+    bundle: { optimizeTranslationDirective: false },
   },
 
   tailwindcss: {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { IngredientGroup, Ingredient } from "~/types/recipes";
 
-defineProps<{
+const props = defineProps<{
   name: string;
   prepTime?: string;
   serves?: number;
@@ -9,6 +9,8 @@ defineProps<{
   ingredients?: Ingredient[];
   groups?: IngredientGroup[];
 }>();
+const ingredients = computed(() => props.ingredients || []);
+const groups = computed(() => props.groups || []);
 </script>
 <template>
   <div>
@@ -20,7 +22,7 @@ defineProps<{
     </div>
 
     <slot name="ingredients">
-      <IngredientList :ingredients="ingredients" :groups="groups" />
+      <IngredientList :ingredients :groups />
     </slot>
 
     <slot name="description" />
