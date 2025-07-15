@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { type AmountInput, type Quantity } from "~/types/recipes";
-import { UnitSystem, UnitSystem as S, UnitType } from "~/services/units";
+import { type AmountInput, type Quantity } from "~~/types/recipes";
+import { UnitSystem, UnitSystem as S, UnitType } from "~~/services/units";
 import { UnitOptions } from "~/composables/useRecipeSettings";
 
 const props = defineProps<{
