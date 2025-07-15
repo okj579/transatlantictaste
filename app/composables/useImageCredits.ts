@@ -1,3 +1,5 @@
+import type { ImageCreditsCollectionItem } from "@nuxt/content";
+
 interface CreditsEntry {
   image: string;
   author?: string;
@@ -8,14 +10,11 @@ interface CreditsEntry {
 }
 
 export function useImageCreditsList() {
-  const { data } = useAsyncData("imageCredits", () =>
-    queryContent<{ body: CreditsEntry[] }>("_image-credits")
-      .only(["body"])
-      .findOne(),
-  );
-  return computed<CreditsEntry[]>(() => {
-    return data.value?.body ?? [];
+  const { data } = useAsyncData(() => queryCollection("imageCredits").first(), {
+    transform: (data): ImageCreditsCollectionItem["body"] => data?.body ?? [],
+    default: (): ImageCreditsCollectionItem["body"] => [],
   });
+  return data;
 }
 
 export default function useImageCredits() {

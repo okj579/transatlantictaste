@@ -1,21 +1,24 @@
-import { dirname } from "pathe";
-import type {NavItem} from '@nuxt/content/dist/runtime/types'
+import type {
+  ContentCollectionItem,
+  ContentNavigationItem,
+} from "@nuxt/content";
+import type { Simplify } from "type-fest";
+
+const extraFields = ["image"] satisfies (keyof ContentCollectionItem)[];
+
+interface _NavItem
+  extends ContentNavigationItem,
+    Pick<ContentCollectionItem, (typeof extraFields)[number]> {
+  children?: NavItem[];
+}
+export type NavItem = Simplify<_NavItem>;
 
 export default async function useNavigation() {
-  const route = useRoute();
-  const { navPageFromPath, navDirFromPath } = useContentHelpers();
-
-  const { data: navigation }: {data: Ref<NavItem[]>} = await useAsyncData("navigation", () =>
-    fetchContentNavigation(queryContent().sort({date: -1})),
+  const { data: navigation } = await useAsyncData<NavItem[]>("navigation", () =>
+    queryCollectionNavigation("content", extraFields).order("date", "DESC"),
   );
-
-  const dir = navPageFromPath(dirname(route.path), navigation.value);
-
-
 
   return {
     navigation,
-    dir,
-    navDirFromPath: (path: string) => navDirFromPath(path, navigation.value)
   };
 }

@@ -13,7 +13,9 @@ useHead(() => ({
   <div>
     <Header />
     <UContainer class="pb-2 pt-8">
-      <NuxtPage />
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
     </UContainer>
   </div>
 </template>

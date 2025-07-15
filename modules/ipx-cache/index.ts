@@ -1,11 +1,6 @@
 import defu from "defu";
 
-import {
-  addServerPlugin,
-  createResolver,
-  defineNuxtModule,
-  resolvePath,
-} from "@nuxt/kit";
+import { addServerPlugin, createResolver, defineNuxtModule, resolvePath } from "@nuxt/kit";
 import type { NuxtOptions } from "@nuxt/schema";
 
 export default defineNuxtModule({

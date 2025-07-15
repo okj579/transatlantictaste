@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Ingredient, IngredientGroup } from "~~/types/recipes";
 import { hash } from "ohash";
+import { objectPick } from "@vueuse/shared";
 
 const props = defineProps<{
   ingredients: Ingredient[];
@@ -21,8 +22,10 @@ interface Glossary {
 }
 const { data: translations } = await useAsyncData(
   `ingredients-${hash(ingredientNames)}`,
-  async () => (await queryContent<Glossary>("_glossary").findOne()).ingredients,
-  { pick: ingredientNames },
+  () => queryCollection("glossary").first(),
+  {
+    transform: (data) => objectPick(data?.ingredients ?? {}, ingredientNames),
+  },
 );
 const getTranslation = ({ translation, name }: Ingredient) =>
   translation ?? translations.value?.[name];
