@@ -1,4 +1,8 @@
 export default defineNuxtConfig({
+  future: {
+    compatibilityVersion: 4,
+  },
+
   modules: [
     "@nuxt/ui",
     "@nuxt/content",
@@ -39,10 +43,7 @@ export default defineNuxtConfig({
       // { code: 'de', language: 'de-DE', file: 'de.yaml', label: 'Deutsch' },
     ],
     defaultLocale: "en",
-    langDir: "locales",
     strategy: "prefix_except_default",
-    vueI18n: "i18n.config.ts",
-    restructureDir: false,
     bundle: { optimizeTranslationDirective: false },
   },
 
@@ -52,5 +53,5 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: "2024-10-30",
+  compatibilityDate: "2025-07-07",
 });

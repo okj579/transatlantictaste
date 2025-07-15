@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Ingredient, IngredientGroup } from "~/types/recipes";
+import type { Ingredient, IngredientGroup } from "~~/types/recipes";
 import { hash } from "ohash";
 
 const props = defineProps<{
