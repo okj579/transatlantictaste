@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { ParsedContent } from "@nuxt/content/dist/runtime/types";
+import type { PageCollectionItemBase } from "@nuxt/content";
 
 defineProps<{
-  doc: ParsedContent | null;
+  doc?: PageCollectionItemBase;
 }>();
 </script>
 <template>

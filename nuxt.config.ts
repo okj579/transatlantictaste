@@ -3,14 +3,7 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
-  modules: [
-    "@nuxt/ui",
-    "@nuxt/content",
-    "@nuxt/image",
-    "@nuxtjs/i18n",
-    "@vueuse/nuxt",
-    "@nuxtjs/seo",
-  ],
+  modules: ["@nuxt/ui", "@nuxt/content", "@nuxt/image", "@nuxtjs/i18n", "@vueuse/nuxt", "@nuxtjs/seo"],
 
   css: ["~/assets/app.css"],
 
@@ -21,9 +14,12 @@ export default defineNuxtConfig({
   },
 
   content: {
-    navigation: { fields: ["title", "image"] },
-    markdown: {
+    experimental: { nativeSqlite: true },
+    renderer: {
       anchorLinks: false,
+    },
+    build: {
+      transformers: ["~~/services/transformer.ts"],
     },
   },
 

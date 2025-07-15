@@ -24,7 +24,7 @@ watch(useRouter().currentRoute, () => {
         <nav class="mx-8 max-sm:hidden">
           <ul class="flex">
             <li v-for="(navItem, i) in navigation" :key="i" class="mx-2">
-              <NuxtLink :to="navItem._path">
+              <NuxtLink :to="navItem.path">
                 {{ navItem.title }}
               </NuxtLink>
             </li>
@@ -73,7 +73,7 @@ watch(useRouter().currentRoute, () => {
         <nav class="px-4 py-4 sm:px-6 sm:py-6">
           <ul>
             <li v-for="(navItem, i) in navigation" :key="i" class="my-2 block">
-              <NuxtLink :to="navItem._path">
+              <NuxtLink :to="navItem.path">
                 {{ navItem.title }}
               </NuxtLink>
             </li>

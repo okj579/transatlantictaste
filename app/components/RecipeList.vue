@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NavItem } from "@nuxt/content/dist/runtime/types";
+import type { NavItem } from "~/composables/useNavigation";
 
 defineProps<{
   pages?: NavItem[];
@@ -8,8 +8,8 @@ defineProps<{
 
 <template>
   <div class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-2">
-    <div v-if="pages" v-for="page in pages" :key="page._path" class="w-full">
-      <NuxtLink :to="page._path">
+    <div v-if="pages" v-for="page in pages" :key="page.path" class="w-full">
+      <NuxtLink :to="page.path">
         <UCard :ui="{ body: { padding: '' } }" class="overflow-hidden">
           <div v-if="page.image">
             <NuxtPicture

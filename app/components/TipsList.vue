@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NavItem } from "@nuxt/content/dist/runtime/types";
+import type { NavItem } from "~/composables/useNavigation";
 
 defineProps<{
   pages?: NavItem[];
@@ -7,11 +7,16 @@ defineProps<{
 </script>
 
 <template>
-  <div v-if="pages" v-for="page in pages" :key="page._path" class="mb-2 not-prose">
-    <NuxtLink :to="page._path">
+  <div
+    v-if="pages"
+    v-for="page in pages"
+    :key="page.path"
+    class="not-prose mb-2"
+  >
+    <NuxtLink :to="page.path">
       <UCard class="overflow-hidden" :ui="{ body: { padding: '' } }">
         <div class="flex items-center justify-between">
-          <div class="text-lg m-4">{{ page.title }}</div>
+          <div class="m-4 text-lg">{{ page.title }}</div>
           <div v-if="page.image" class="self-stretch">
             <NuxtPicture
               :src="page.image"
