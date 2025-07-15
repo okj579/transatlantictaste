@@ -17,7 +17,7 @@
     "@nuxtjs/i18n": "^8.5.5",
     "@nuxtjs/seo": "^2.0.0-rc.23",
     "@vueuse/nuxt": "^11.2.0",
-    "nuxt": "^3.13.2",
+    "nuxt": "^3.16.0",
     "unist-util-is": "^6.0.0",
     "unist-util-select": "^5.1.0",
     "unist-util-visit": "^5.0.0"
