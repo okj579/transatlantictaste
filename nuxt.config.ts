@@ -40,7 +40,6 @@ export default defineNuxtConfig({
     ],
     defaultLocale: "en",
     strategy: "prefix_except_default",
-    bundle: { optimizeTranslationDirective: false },
   },
 
   tailwindcss: {

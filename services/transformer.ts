@@ -74,7 +74,10 @@ export default defineTransformer({
           (group ?? listProps).ingredients.push(...ingredients);
         }
       }
-      return [tag(recipe), props(recipe), ["ingredient-list", listProps]];
+
+      slot.splice(2, Infinity, ["ingredient-list", listProps]);
+
+      return recipe;
     });
 
     return content;
