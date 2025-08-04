@@ -1,8 +1,4 @@
 export default defineNuxtConfig({
-  future: {
-    compatibilityVersion: 4,
-  },
-
   modules: ["@nuxt/ui", "@nuxt/content", "@nuxt/image", "@nuxtjs/i18n", "@vueuse/nuxt", "@nuxtjs/seo"],
 
   css: ["~/assets/app.css"],

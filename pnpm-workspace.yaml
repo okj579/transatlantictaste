@@ -8,4 +8,11 @@ onlyBuiltDependencies:
   - sharp
   - vue-demi
 
+overrides:
+  '@nuxtjs/mdc@<0.17.2': '>=0.17.2'
+
+engineStrict: true
+
+nodeOptions: ${NODE_OPTIONS:- } --disable-warning=ExperimentalWarning
+
 shamefullyHoist: true

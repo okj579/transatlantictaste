@@ -16,14 +16,14 @@ export default defineContentConfig({
     }),
     glossary: defineCollection({
       type: "data",
-      source: "_data/glossary",
+      source: "_data/glossary.yaml",
       schema: z.object({
         ingredients: z.record(z.string(), z.string()),
       }),
     }),
     imageCredits: defineCollection({
       type: "data",
-      source: "_data/image-credits",
+      source: "_data/image-credits.yaml",
       schema: z.object({
         body: z.array(
           z.object({
