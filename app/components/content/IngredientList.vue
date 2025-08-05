@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { Ingredient, IngredientGroup } from "~~/types/recipes";
 import { hash } from "ohash";
-import { objectPick } from "@vueuse/shared";
 
 const props = defineProps<{
   ingredients: Ingredient[];
@@ -17,18 +16,12 @@ const ingredientNames = [
   ...props.ingredients.map((i) => i.name),
   ...(groups.value.flatMap?.((g) => g.ingredients).map((i) => i.name) ?? []),
 ];
-interface Glossary {
-  ingredients: Record<string, string>;
-}
-const { data: translations } = await useAsyncData(
+const { data: translations } = await useAsyncData<Record<string, string>>(
   `ingredients-${hash(ingredientNames)}`,
-  () => queryCollection("glossary").first(),
-  {
-    transform: (data) => objectPick(data?.ingredients ?? {}, ingredientNames),
-  },
+  () => import("~~/content/_data/glossary.yaml").then((m) => m.default.ingredients),
+  { pick: ingredientNames },
 );
-const getTranslation = ({ translation, name }: Ingredient) =>
-  translation ?? translations.value?.[name];
+const getTranslation = ({ translation, name }: Ingredient) => translation ?? translations.value?.[name];
 </script>
 
 <template>
@@ -47,18 +40,11 @@ const getTranslation = ({ translation, name }: Ingredient) =>
           >
             <IngredientAmount :amount="ingredient.amount" />
             <div class="cell col-start-[name]">
-              <Tooltip
-                v-if="!showTranslation && getTranslation(ingredient)"
-                :tooltip="getTranslation(ingredient)"
-              >
+              <Tooltip v-if="!showTranslation && getTranslation(ingredient)" :tooltip="getTranslation(ingredient)">
                 {{ ingredient.name }}
               </Tooltip>
               <span v-else>{{ ingredient.name }}</span>
-              <NuxtLinkLocale
-                v-if="ingredient.link"
-                :to="ingredient.link"
-                class="ms-1"
-              >
+              <NuxtLinkLocale v-if="ingredient.link" :to="ingredient.link" class="ms-1">
                 <UIcon
                   name="i-mdi-information-variant-circle-outline"
                   class="align-middle text-lg"
@@ -81,16 +67,6 @@ const getTranslation = ({ translation, name }: Ingredient) =>
 .ingredient-table {
   grid-template-columns: [vol volI] max-content [volM] max-content [mass massI] max-content [massM] max-content [name] auto auto;
 }
-/* safelist
-.col-start-[vol],
-.col-start-[volI],
-.col-start-[volM],
-.col-start-[mass],
-.col-start-[massI],
-.col-start-[massM],
-.col-start-[name] {
-}
-*/
 .ingredient-table :deep(.cell) {
   @apply px-2 py-1;
 }

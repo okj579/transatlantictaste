@@ -4,15 +4,8 @@ import { UnitOptions } from "~/composables/useRecipeSettings";
 const { t } = useI18n();
 const { showTranslation, volumeUnits, massUnits } = toRefs(useRecipeSettings());
 
-const volumeOptions = useSelectOptions("unitOptions", [
-  UnitOptions.IMPERIAL,
-  UnitOptions.METRIC,
-  UnitOptions.BOTH,
-]);
-const massOptions = useSelectOptions("unitOptions", [
-  UnitOptions.METRIC,
-  UnitOptions.BOTH,
-]);
+const volumeOptions = useSelectOptions("unitOptions", [UnitOptions.IMPERIAL, UnitOptions.METRIC, UnitOptions.BOTH]);
+const massOptions = useSelectOptions("unitOptions", [UnitOptions.METRIC, UnitOptions.BOTH]);
 </script>
 <template>
   <UAccordion
@@ -20,11 +13,11 @@ const massOptions = useSelectOptions("unitOptions", [
       {
         label: t('ingredientSettings.label'),
         icon: 'i-mdi-cog',
-        variant: 'soft',
-        color: 'green',
+        variant: 'solid',
+        color: 'white',
       },
     ]"
-    class="not-prose rounded-lg bg-gray-800"
+    class="not-prose rounded-lg"
   >
     <template #item>
       <div class="flex flex-wrap gap-4 px-4">

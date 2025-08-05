@@ -3,7 +3,7 @@ import { isPlainObject } from "@vue/shared";
 
 const paths = ["/legal"];
 
-const { data: links } = await useAsyncData(() =>
+const { data: links } = await useAsyncData("footer-links", () =>
   queryCollection("content")
     .where("path", "IN", paths)
     .select("path", "title", "navigation")
@@ -11,9 +11,7 @@ const { data: links } = await useAsyncData(() =>
     .then((list) =>
       list.map((link) => ({
         path: link.path,
-        title:
-          (isPlainObject(link.navigation) && link.navigation.title) ||
-          link.title,
+        title: (isPlainObject(link.navigation) && link.navigation.title) || link.title,
       })),
     ),
 );

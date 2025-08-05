@@ -14,28 +14,5 @@ export default defineContentConfig({
         image: z.string().optional(),
       }),
     }),
-    glossary: defineCollection({
-      type: "data",
-      source: "_data/glossary.yaml",
-      schema: z.object({
-        ingredients: z.record(z.string(), z.string()),
-      }),
-    }),
-    imageCredits: defineCollection({
-      type: "data",
-      source: "_data/image-credits.yaml",
-      schema: z.object({
-        body: z.array(
-          z.object({
-            image: z.string(),
-            author: z.string().optional(),
-            authorLink: z.string().optional(),
-            link: z.string().optional(),
-            license: z.string().optional(),
-            sourceUrl: z.string().optional(),
-          }),
-        ),
-      }),
-    }),
   },
 });
