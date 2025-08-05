@@ -1,7 +1,7 @@
-import type { ImageCreditsCollectionItem } from "@nuxt/content";
+import type { MaybeRefOrGetter } from "@vue/reactivity";
 
 interface CreditsEntry {
-  image: string;
+  image?: string;
   author?: string;
   authorLink?: string;
   link?: string;
@@ -9,21 +9,15 @@ interface CreditsEntry {
   source?: string;
 }
 
-export function useImageCreditsList() {
-  const { data } = useAsyncData(() => queryCollection("imageCredits").first(), {
-    transform: (data): ImageCreditsCollectionItem["body"] => data?.body ?? [],
-    default: (): ImageCreditsCollectionItem["body"] => [],
-  });
-  return data;
-}
+const _useCredit = <T>(key: MaybeRefOrGetter<string>, transform: (data: Record<string, CreditsEntry>) => T) =>
+  useAsyncData(
+    () => `image-credit-${toValue(key)}`,
+    () => import("~~/content/_data/image-credits.yaml").then((m) => m.default),
+    { transform },
+  );
 
-export default function useImageCredits() {
-  const list = useImageCreditsList();
-  return computed<Record<string, CreditsEntry>>(() => {
-    const entries = Object.fromEntries(list.value.map((v) => [v.image, v]));
-    return new Proxy(entries, {
-      get: (target, p: string) =>
-        target[p] ?? target[p.replace(/^\/?images\/?/, "")],
-    });
-  });
-}
+export const useImageCreditsList = () =>
+  _useCredit("list", (data) => Object.entries(data).map(([image, values]) => ({ image, ...values })));
+
+export const useImageCredits = (image: MaybeRefOrGetter<string>) =>
+  _useCredit(image, (data) => data[toValue(image).replace(/^\/images\//, "")]);

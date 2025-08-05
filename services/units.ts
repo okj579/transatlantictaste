@@ -27,9 +27,7 @@ export interface UnitDefinition {
 
 type Entry<T extends object, K extends keyof T = keyof T> = [K, T[K]];
 
-export const units = new Set(
-  Object.values(Unit).filter((x) => isNaN(Number(x))),
-);
+export const units = new Set(Object.values(Unit).filter((x) => isNaN(Number(x))));
 export const isUnit = (value: any): value is Unit => units.has(value);
 
 type ObjectMatcher<T extends object> = Partial<T>;
@@ -51,13 +49,13 @@ class SearchableMap<
   }
   findBy(matcher: Partial<Value>): Value | undefined {
     const test = matchObject(matcher);
-    return [...this.values()].find(test);
+    return Array.from(this.values()).find(test);
   }
 
   getBy(matcher: Partial<Value>): typeof this {
     const test = matchObject(matcher);
     const { constructor } = Object.getPrototypeOf(this);
-    return new constructor([...this.values()].filter(test));
+    return new constructor(Array.from(this.values()).filter(test));
   }
 }
 

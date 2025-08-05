@@ -1,5 +1,4 @@
 {
-  "files": [],
   "references": [
     {
       "path": "./.nuxt/tsconfig.app.json"
@@ -13,5 +12,10 @@
     {
       "path": "./.nuxt/tsconfig.node.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "types": [
+      "@modyfi/vite-plugin-yaml/modules"
+    ],
+  }
 }

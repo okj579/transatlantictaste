@@ -1,4 +1,4 @@
-import { Unit, UnitSystem, UnitType } from "~~/services/units";
+import type { Unit, UnitSystem, UnitType } from "~~/services/units";
 
 interface AmountObject extends Partial<Record<Unit, number>> {
   text?: string;

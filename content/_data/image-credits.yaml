@@ -1,77 +1,76 @@
-body:
-  - image: eggs.jpg
-    license: CC0
-    source: Pexels
-    link: https://www.pexels.com/de-de/foto/braune-eier-auf-brauner-holzschale-auf-beige-gestricktem-textil-162712/
+eggs.jpg:
+  license: CC0
+  source: Pexels
+  link: https://www.pexels.com/de-de/foto/braune-eier-auf-brauner-holzschale-auf-beige-gestricktem-textil-162712/
 
-  - image: powder-jar.jpg
-    author: kaboompics
-    authorLink: https://www.freepik.com/author/kaboompics
-    source: FreePik
-    link: https://www.freepik.com/free-photo/flour-table-glass-jar_933056.htm
+powder-jar.jpg:
+  author: kaboompics
+  authorLink: https://www.freepik.com/author/kaboompics
+  source: FreePik
+  link: https://www.freepik.com/free-photo/flour-table-glass-jar_933056.htm
 
-  - image: spoon-6038876_640.jpg
-    source: Pixabay
-    author: MYCCF
-    authorLink: https://pixabay.com/users/myccf-20343736/
-    link: https://pixabay.com/photos/spoon-dietitian-diet-measure-steel-6038876/
+spoon-6038876_640.jpg:
+  source: Pixabay
+  author: MYCCF
+  authorLink: https://pixabay.com/users/myccf-20343736/
+  link: https://pixabay.com/photos/spoon-dietitian-diet-measure-steel-6038876/
 
-  - image: spoons.jpg
-    author: ArtHouse Studio
-    authorLink: https://www.pexels.com/de-de/@arthousestudio/
-    source: Pexels
-    link: https://www.pexels.com/de-de/foto/trocken-kochen-gewurze-zutaten-4589165/
+spoons.jpg:
+  author: ArtHouse Studio
+  authorLink: https://www.pexels.com/de-de/@arthousestudio/
+  source: Pexels
+  link: https://www.pexels.com/de-de/foto/trocken-kochen-gewurze-zutaten-4589165/
 
-  - image: pumpkin-pie.jpg
-    author: Element5 Digital
-    authorLink: https://www.pexels.com/de-de/@element5/
-    source: Pexels
-    link: https://www.pexels.com/de-de/foto/dessert-essensfotografie-nachspeise-nachtisch-669736/
+pumpkin-pie.jpg:
+  author: Element5 Digital
+  authorLink: https://www.pexels.com/de-de/@element5/
+  source: Pexels
+  link: https://www.pexels.com/de-de/foto/dessert-essensfotografie-nachspeise-nachtisch-669736/
 
-  - image: snickerdoodles.jpg
-    author: Jessica Johnston
-    authorLink: https://unsplash.com/@jdjohnston
-    source: Unsplash
-    link: https://unsplash.com/photos/a-bunch-of-cookies-that-are-cooling-on-a-rack-92G0voshUr0
+snickerdoodles.jpg:
+  author: Jessica Johnston
+  authorLink: https://unsplash.com/@jdjohnston
+  source: Unsplash
+  link: https://unsplash.com/photos/a-bunch-of-cookies-that-are-cooling-on-a-rack-92G0voshUr0
 
-  - image: powder-spice.jpg
-    author: Racool_studio
-    authorLink: https://www.freepik.com/author/racool-studio
-    source: Freepik
-    link: https://www.freepik.com/free-photo/powder-spice_9078400.htm
+powder-spice.jpg:
+  author: Racool_studio
+  authorLink: https://www.freepik.com/author/racool-studio
+  source: Freepik
+  link: https://www.freepik.com/free-photo/powder-spice_9078400.htm
 
-  - image: powder-bowl.jpg
-    author: Jasmin_Ne
-    authorLink: https://unsplash.com/@jasminnb
-    source: Unsplash
-    link: https://unsplash.com/photos/a-wooden-bowl-filled-with-white-powder-next-to-a-bottle-of-honey--STVybdfXvE
+powder-bowl.jpg:
+  author: Jasmin_Ne
+  authorLink: https://unsplash.com/@jasminnb
+  source: Unsplash
+  link: https://unsplash.com/photos/a-wooden-bowl-filled-with-white-powder-next-to-a-bottle-of-honey--STVybdfXvE
 
-  - image: brown-sugar.jpg
-    author: fahrwasser
-    authorLink: https://www.freepik.com/author/fahrwasser
-    source: Freepik
-    link: https://www.freepik.com/free-photo/baking-with-apple-sugar-cinnamon_28007511.htm
+brown-sugar.jpg:
+  author: fahrwasser
+  authorLink: https://www.freepik.com/author/fahrwasser
+  source: Freepik
+  link: https://www.freepik.com/free-photo/baking-with-apple-sugar-cinnamon_28007511.htm
 
-  - image: maarten-van-den-heuvel-EzH46XCDQRY-unsplash.jpg
-    author: Maarten van den Heuvel
-    authorLink: https://unsplash.com/@mvdheuvel
-    source: Unsplash
-    link: https://unsplash.com/photos/person-slicing-green-vegetable-in-front-of-round-ceramic-plates-with-assorted-sliced-vegetables-during-daytime-EzH46XCDQRY
+maarten-van-den-heuvel-EzH46XCDQRY-unsplash.jpg:
+  author: Maarten van den Heuvel
+  authorLink: https://unsplash.com/@mvdheuvel
+  source: Unsplash
+  link: https://unsplash.com/photos/person-slicing-green-vegetable-in-front-of-round-ceramic-plates-with-assorted-sliced-vegetables-during-daytime-EzH46XCDQRY
 
-  - image: pancakes.jpg
-    author: Jaqueline Pelzer
-    authorLink: https://unsplash.com/de/@jaqui123456
-    link: https://unsplash.com/de/fotos/pfannkuchen-mit-beeren-auf-weissem-keramikteller-MytHEJlzdcM
-    source: Unsplash
+pancakes.jpg:
+  author: Jaqueline Pelzer
+  authorLink: https://unsplash.com/de/@jaqui123456
+  link: https://unsplash.com/de/fotos/pfannkuchen-mit-beeren-auf-weissem-keramikteller-MytHEJlzdcM
+  source: Unsplash
 
-  - image: banana-bread.jpg
-    author: Jeff Siepman
-    link: https://unsplash.com/photos/sliced-cakes-MssPSnkV1yM
-    authorLink: https://unsplash.com/@jeffsiepman
-    source: Unsplash
+banana-bread.jpg:
+  author: Jeff Siepman
+  link: https://unsplash.com/photos/sliced-cakes-MssPSnkV1yM
+  authorLink: https://unsplash.com/@jeffsiepman
+  source: Unsplash
 
-  - image: green-beans.jpg
-    author: Mitchell Luo
-    authorLink: https://unsplash.com/@mitchel3uo
-    link: https://unsplash.com/photos/green-leaves-on-black-round-plate-caeCP50psL8
-    source: Unsplash
+green-beans.jpg:
+  author: Mitchell Luo
+  authorLink: https://unsplash.com/@mitchel3uo
+  link: https://unsplash.com/photos/green-leaves-on-black-round-plate-caeCP50psL8
+  source: Unsplash
