@@ -5,7 +5,7 @@
       <slot />
     </main>
 
-    <hr class="border-gray-200 dark:border-gray-800 my-12" />
+    <hr class="my-12 border-neutral-200 dark:border-neutral-800" />
 
     <PageFooter />
   </div>

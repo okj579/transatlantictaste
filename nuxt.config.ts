@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    provider: "ipxStatic",
+    provider: "ipx",
     format: ["avif", "webp"],
   },
 
@@ -42,30 +42,12 @@ export default defineNuxtConfig({
     strategy: "prefix_except_default",
   },
 
-  tailwindcss: {
-    config: {
-      safelist: [
-        "col-start-[vol]",
-        "col-start-[volI]",
-        "col-start-[volM]",
-        "col-start-[mass]",
-        "col-start-[massI]",
-        "col-start-[massM]",
-        "col-start-[name]",
-      ],
-      // safelist: ["col-start-[ma"],
-    },
-  },
-
   vite: {
     plugins: [
       ViteYaml({
         exclude: ["i18n/**"],
-      }),
+      }) as any,
     ],
-    define: {
-      "window.WebAssembly": false,
-    },
   },
 
   build: {

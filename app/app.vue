@@ -10,12 +10,12 @@ useHead(() => ({
 </script>
 
 <template>
-  <div>
+  <UApp>
     <Header />
-    <UContainer class="pb-2 pt-8">
+    <UContainer class="pt-8 pb-2">
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
     </UContainer>
-  </div>
+  </UApp>
 </template>

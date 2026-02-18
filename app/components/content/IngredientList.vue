@@ -31,41 +31,39 @@ const getTranslation = ({ translation, name }: Ingredient) => translation ?? tra
         <div v-if="'title' in group" class="col-span-full border-b-0">
           <h4>{{ group.title }}</h4>
         </div>
-        <div class="contents" role="list">
-          <div
-            v-for="(ingredient, i) in group.ingredients"
-            :key="i"
-            class="col-span-full grid grid-cols-subgrid border-b border-[color:var(--tw-prose-td-borders)] last:border-0"
-            role="listitem"
-          >
-            <IngredientAmount :amount="ingredient.amount" />
-            <div class="cell col-start-[name]">
-              <Tooltip v-if="!showTranslation && getTranslation(ingredient)" :tooltip="getTranslation(ingredient)">
-                {{ ingredient.name }}
-              </Tooltip>
-              <span v-else>{{ ingredient.name }}</span>
-              <NuxtLinkLocale v-if="ingredient.link" :to="ingredient.link" class="ms-1">
-                <UIcon
-                  name="i-mdi-information-variant-circle-outline"
-                  class="align-middle text-lg"
-                  :title="t('info')"
-                />
-              </NuxtLinkLocale>
-            </div>
-            <div v-if="showTranslation" class="cell">
-              {{ getTranslation(ingredient) ?? "" }}
-            </div>
+        <div
+          v-for="(ingredient, i) in group.ingredients"
+          :key="i"
+          class="border-muted col-span-full grid grid-cols-subgrid border-b last:border-0"
+          role="listitem"
+        >
+          <IngredientAmount :amount="ingredient.amount" />
+          <div class="cell col-start-[name]">
+            <Tooltip v-if="!showTranslation && getTranslation(ingredient)" :tooltip="getTranslation(ingredient)">
+              {{ ingredient.name }}
+            </Tooltip>
+            <span v-else>{{ ingredient.name }}</span>
+            <NuxtLinkLocale v-if="ingredient.link" :to="ingredient.link" class="ms-1">
+              <UIcon name="i-mdi-information-variant-circle-outline" class="align-middle text-lg" :title="t('info')" />
+            </NuxtLinkLocale>
+          </div>
+          <div v-if="showTranslation" class="cell">
+            {{ getTranslation(ingredient) ?? "" }}
           </div>
         </div>
       </template>
+      <div class="col-span-full">
+        <IngredientSettings class="mt-2 block" />
+      </div>
     </div>
-    <IngredientSettings class="mt-2" />
   </div>
 </template>
 
 <style scoped>
+@reference '~/assets/app.css';
+
 .ingredient-table {
-  grid-template-columns: [vol volI] max-content [volM] max-content [mass massI] max-content [massM] max-content [name] auto auto;
+  grid-template-columns: [vol volI] min-content [volM] min-content [mass massI] min-content [massM] min-content [name] auto auto;
 }
 .ingredient-table :deep(.cell) {
   @apply px-2 py-1;

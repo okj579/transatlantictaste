@@ -22,7 +22,7 @@ useHead({
         <div class="flex items-center justify-center">
           <NuxtLink
             to="/recipes"
-            class="flex h-full min-h-36 w-full items-center justify-center rounded-lg bg-gray-500/10 underline backdrop-blur"
+            class="flex h-full min-h-36 w-full items-center justify-center rounded-lg bg-neutral-500/10 underline backdrop-blur-sm"
           >
             <span>More Recipes...</span>
           </NuxtLink>

@@ -8,29 +8,28 @@ const volumeOptions = useSelectOptions("unitOptions", [UnitOptions.IMPERIAL, Uni
 const massOptions = useSelectOptions("unitOptions", [UnitOptions.METRIC, UnitOptions.BOTH]);
 </script>
 <template>
-  <UAccordion
-    :items="[
-      {
-        label: t('ingredientSettings.label'),
-        icon: 'i-mdi-cog',
-        variant: 'solid',
-        color: 'white',
-      },
-    ]"
-    class="not-prose rounded-lg"
-  >
-    <template #item>
-      <div class="flex flex-wrap gap-4 px-4">
-        <UFormGroup :label="t('ingredientSettings.volumeUnits')">
-          <URadioGroup :options="volumeOptions" v-model="volumeUnits" />
-        </UFormGroup>
-        <UFormGroup :label="t('ingredientSettings.massUnits')">
-          <URadioGroup v-model="massUnits" :options="massOptions" />
-        </UFormGroup>
-        <UFormGroup :label="t('ingredientSettings.showTranslation')">
-          <UToggle v-model="showTranslation" class="mt-1" />
-        </UFormGroup>
+  <UCollapsible class="not-prose">
+    <UButton
+      variant="soft"
+      color="neutral"
+      :label="t('ingredientSettings.label')"
+      icon="i-mdi-cog"
+      trailingIcon="i-mdi-chevron-down"
+      class="w-full"
+      :ui="{ label: 'flex-1 text-left px-2' }"
+    />
+    <template #content>
+      <div class="border-muted/50 bg-muted/50 mx-2 flex flex-wrap gap-4 rounded-b-lg border border-t-0 px-4 py-2">
+        <UFormField :label="t('ingredientSettings.volumeUnits')">
+          <URadioGroup :items="volumeOptions" v-model="volumeUnits" />
+        </UFormField>
+        <UFormField :label="t('ingredientSettings.massUnits')">
+          <URadioGroup v-model="massUnits" :items="massOptions" />
+        </UFormField>
+        <UFormField :label="t('ingredientSettings.showTranslation')">
+          <USwitch v-model="showTranslation" class="mt-1" />
+        </UFormField>
       </div>
     </template>
-  </UAccordion>
+  </UCollapsible>
 </template>

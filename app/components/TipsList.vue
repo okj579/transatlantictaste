@@ -7,14 +7,9 @@ defineProps<{
 </script>
 
 <template>
-  <div
-    v-if="pages"
-    v-for="page in pages"
-    :key="page.path"
-    class="not-prose mb-2"
-  >
+  <div v-if="pages" v-for="page in pages" :key="page.path" class="not-prose mb-2">
     <NuxtLink :to="page.path">
-      <UCard class="overflow-hidden" :ui="{ body: { padding: '' } }">
+      <UCard class="overflow-hidden" :ui="{ body: 'p-0!' }">
         <div class="flex items-center justify-between">
           <div class="m-4 text-lg">{{ page.title }}</div>
           <div v-if="page.image" class="self-stretch">

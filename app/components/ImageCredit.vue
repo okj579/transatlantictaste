@@ -9,13 +9,13 @@ const domain = computed(() => link.value && new URL(link.value).host);
 
 <template>
   <small v-if="credit">
-    <UPopover class="inline-block" :popper="{ placement: 'bottom-end' }">
-      <span class="cursor-help text-2xs italic">
+    <UPopover class="inline-block" :content="{ side: 'bottom', align: 'end' }">
+      <span class="text-2xs cursor-help italic">
         Image: {{ credit.author }}
         <template v-if="credit.source && !credit.author"> from {{ credit.source }} </template>
         <template v-if="credit.license && !credit.author"> ({{ credit.license }}) </template>
       </span>
-      <template #panel>
+      <template #content>
         <div class="p-4 text-left text-xs">
           Image
           <template v-if="credit.author"> by {{ credit.author }} </template>
